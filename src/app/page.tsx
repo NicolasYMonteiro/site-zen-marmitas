@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Hero from '@/components/hero/hero';
 import About from '@/components/about/about';
 import Services from '@/components/services/services';
-import Contact from '@/components/contact/contact';
+import Contact from '@/config/contact';
 import Footer from '@/components/footer/footer';
 import { useMetaPixel } from '@/hooks/useMetaPixel';
 import { section } from 'framer-motion/client';

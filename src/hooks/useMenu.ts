@@ -35,7 +35,7 @@ export const useMenu = () => {
       setLoading(true);
       setError(null);
       
-      const response = await fetch('/data/menu.json');
+      const response = await fetch('/api/menu');
       if (!response.ok) {
         throw new Error('Erro ao carregar cardápio');
       }
@@ -49,15 +49,24 @@ export const useMenu = () => {
     }
   };
 
-  // Salvar dados do menu (simulado - em produção seria uma API)
+  // Salvar dados do menu
   const saveMenu = async (newMenuData: MenuData) => {
     try {
-      // Em um ambiente real, isso seria uma chamada para uma API
-      // Por enquanto, apenas atualizamos o estado local
-      setMenuData(newMenuData);
-      
-      // Simular delay de salvamento
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('/api/menu', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMenuData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao salvar cardápio');
+      }
+
+      const result = await response.json();
+      setMenuData(result.data);
       
       return { success: true };
     } catch (err) {
@@ -80,33 +89,46 @@ export const useMenu = () => {
     return allItems.find(item => item.id === id);
   };
 
-  // Obter próxima ID disponível
-  const getNextId = (): number => {
-    const allItems = getAllItems();
-    if (allItems.length === 0) return 1;
-    return Math.max(...allItems.map(item => item.id)) + 1;
-  };
 
   // Adicionar novo item
   const addItem = async (categoryId: number, item: Omit<MenuItem, 'id'>) => {
-    if (!menuData) return { success: false, error: 'Menu não carregado' };
+    try {
+      const response = await fetch('/api/menu', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ categoryId, item }),
+      });
 
-    const newItem: MenuItem = {
-      ...item,
-      id: getNextId()
-    };
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao adicionar item');
+      }
 
-    const updatedMenuData = {
-      ...menuData,
-      categories: menuData.categories.map(category => 
-        category.id === categoryId
-          ? { ...category, items: [...category.items, newItem] }
-          : category
-      ),
-      lastUpdated: new Date().toISOString()
-    };
+      const result = await response.json();
+      
+      // Atualizar estado local
+      if (menuData) {
+        const updatedMenuData = {
+          ...menuData,
+          categories: menuData.categories.map(category => 
+            category.id === categoryId
+              ? { ...category, items: [...category.items, result.data] }
+              : category
+          ),
+          lastUpdated: new Date().toISOString()
+        };
+        setMenuData(updatedMenuData);
+      }
 
-    return await saveMenu(updatedMenuData);
+      return { success: true };
+    } catch (err) {
+      return { 
+        success: false, 
+        error: err instanceof Error ? err.message : 'Erro ao adicionar item' 
+      };
+    }
   };
 
   // Atualizar item
@@ -129,37 +151,73 @@ export const useMenu = () => {
 
   // Remover item
   const removeItem = async (itemId: number) => {
-    if (!menuData) return { success: false, error: 'Menu não carregado' };
+    try {
+      const response = await fetch(`/api/menu?itemId=${itemId}`, {
+        method: 'DELETE',
+      });
 
-    const updatedMenuData = {
-      ...menuData,
-      categories: menuData.categories.map(category => ({
-        ...category,
-        items: category.items.filter(item => item.id !== itemId)
-      })),
-      lastUpdated: new Date().toISOString()
-    };
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao remover item');
+      }
 
-    return await saveMenu(updatedMenuData);
+      // Atualizar estado local
+      if (menuData) {
+        const updatedMenuData = {
+          ...menuData,
+          categories: menuData.categories.map(category => ({
+            ...category,
+            items: category.items.filter(item => item.id !== itemId)
+          })),
+          lastUpdated: new Date().toISOString()
+        };
+        setMenuData(updatedMenuData);
+      }
+
+      return { success: true };
+    } catch (err) {
+      return { 
+        success: false, 
+        error: err instanceof Error ? err.message : 'Erro ao remover item' 
+      };
+    }
   };
 
   // Adicionar nova categoria
   const addCategory = async (name: string) => {
-    if (!menuData) return { success: false, error: 'Menu não carregado' };
+    try {
+      const response = await fetch('/api/menu/category', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name }),
+      });
 
-    const newCategory: MenuCategory = {
-      id: Math.max(...menuData.categories.map(cat => cat.id)) + 1,
-      name,
-      items: []
-    };
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao adicionar categoria');
+      }
 
-    const updatedMenuData = {
-      ...menuData,
-      categories: [...menuData.categories, newCategory],
-      lastUpdated: new Date().toISOString()
-    };
+      const result = await response.json();
+      
+      // Atualizar estado local
+      if (menuData) {
+        const updatedMenuData = {
+          ...menuData,
+          categories: [...menuData.categories, result.data],
+          lastUpdated: new Date().toISOString()
+        };
+        setMenuData(updatedMenuData);
+      }
 
-    return await saveMenu(updatedMenuData);
+      return { success: true };
+    } catch (err) {
+      return { 
+        success: false, 
+        error: err instanceof Error ? err.message : 'Erro ao adicionar categoria' 
+      };
+    }
   };
 
   // Carregar menu na inicialização

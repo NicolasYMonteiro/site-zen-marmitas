@@ -35,9 +35,13 @@ export default function AdminPage() {
     price: 0,
     calories: 0,
     protein: '',
-    image: '/marmita-tradicional.png',
+    image: '',
     available: true
   });
+
+  // Estados para upload de imagem
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingEditImage, setUploadingEditImage] = useState(false);
 
   // Formulário de nova categoria
   const [newCategory, setNewCategory] = useState({
@@ -75,7 +79,7 @@ export default function AdminPage() {
         price: 0,
         calories: 0,
         protein: '',
-        image: '/marmita-tradicional.png',
+        image: '',
         available: true
       });
       setShowAddItem(false);
@@ -126,6 +130,49 @@ export default function AdminPage() {
   const formatCpf = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+  };
+
+  // Upload de imagem
+  const handleImageUpload = async (file: File, isEdit: boolean = false) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      if (isEdit) {
+        setUploadingEditImage(true);
+      } else {
+        setUploadingImage(true);
+      }
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro no upload');
+      }
+
+      const result = await response.json();
+      
+      if (isEdit && editingItem) {
+        setEditingItem({ ...editingItem, image: result.url });
+      } else {
+        setNewItem({ ...newItem, image: result.url });
+      }
+
+      return result.url;
+    } catch (error) {
+      alert('Erro ao fazer upload da imagem: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
+      return null;
+    } finally {
+      if (isEdit) {
+        setUploadingEditImage(false);
+      } else {
+        setUploadingImage(false);
+      }
+    }
   };
 
   if (!isAuthenticated) {
@@ -378,6 +425,55 @@ export default function AdminPage() {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Imagem</label>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          handleImageUpload(file, false);
+                        }
+                      }}
+                      className="hidden"
+                      id="image-upload"
+                    />
+                    <label
+                      htmlFor="image-upload"
+                      className={`px-4 py-2 rounded-lg border-2 border-dashed border-gray-300 cursor-pointer hover:border-[#5d7b3b] transition-colors duration-200 ${
+                        uploadingImage ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      {uploadingImage ? 'Enviando...' : 'Escolher Imagem'}
+                    </label>
+                  </div>
+                  
+                  {newItem.image && (
+                    <div className="relative">
+                      <img
+                        src={newItem.image}
+                        alt="Preview"
+                        className="w-20 h-20 object-cover rounded-lg border border-gray-200"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setNewItem({ ...newItem, image: '' })}
+                        className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  
+                  <p className="text-xs text-gray-500">
+                    Formatos aceitos: JPG, PNG, WebP. Máximo 5MB.
+                  </p>
+                </div>
+              </div>
+
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -509,6 +605,55 @@ export default function AdminPage() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#5d7b3b] focus:ring-2 focus:ring-[#5d7b3b]/20"
                   placeholder="ex: 25g"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Imagem</label>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          handleImageUpload(file, true);
+                        }
+                      }}
+                      className="hidden"
+                      id="edit-image-upload"
+                    />
+                    <label
+                      htmlFor="edit-image-upload"
+                      className={`px-4 py-2 rounded-lg border-2 border-dashed border-gray-300 cursor-pointer hover:border-[#5d7b3b] transition-colors duration-200 ${
+                        uploadingEditImage ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      {uploadingEditImage ? 'Enviando...' : 'Alterar Imagem'}
+                    </label>
+                  </div>
+                  
+                  {editingItem.image && (
+                    <div className="relative">
+                      <img
+                        src={editingItem.image}
+                        alt="Preview"
+                        className="w-20 h-20 object-cover rounded-lg border border-gray-200"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setEditingItem({ ...editingItem, image: '' })}
+                        className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  
+                  <p className="text-xs text-gray-500">
+                    Formatos aceitos: JPG, PNG, WebP. Máximo 5MB.
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center">

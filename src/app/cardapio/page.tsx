@@ -143,13 +143,24 @@ export default function CardapioPage() {
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 group"
                 >
                   {/* Imagem do item */}
-                  <div className="relative h-48 bg-gradient-to-br from-[#5d7b3b] to-[#7a9a4e] overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <div className="text-6xl mb-2">🍱</div>
-                        <p className="text-lg font-medium">{item.name}</p>
+                  <div className="relative h-48 overflow-hidden">
+                    {item.image ? (
+                      <div className="w-full h-full relative">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10"></div>
                       </div>
-                    </div>
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-[#5d7b3b] to-[#7a9a4e] flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <div className="text-6xl mb-2">🍱</div>
+                          <p className="text-lg font-medium">{item.name}</p>
+                        </div>
+                      </div>
+                    )}
                     
                     {/* Badge de preço */}
                     <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-2 shadow-lg">
@@ -157,7 +168,6 @@ export default function CardapioPage() {
                         R$ {Number(item.price).toFixed(2).replace('.', ',')}
                       </span>
                     </div>
-                
                   </div>
 
                   {/* Conteúdo do item */}
