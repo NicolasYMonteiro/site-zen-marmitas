@@ -177,7 +177,7 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white text-gray-800 flex items-center justify-center">
         <div className="max-w-md w-full mx-4">
           <div className="bg-white rounded-2xl shadow-2xl p-8">
             <div className="text-center mb-8">
@@ -232,7 +232,7 @@ export default function AdminPage() {
 
   if (menuLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white text-gray-800 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 bg-gradient-to-r from-[#5d7b3b] to-[#7a9a4e] rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Carregando cardápio...</p>
@@ -243,7 +243,7 @@ export default function AdminPage() {
 
   if (menuError) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white flex text-gray-800 items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">⚠️</span>
@@ -256,7 +256,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white text-gray-800">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -351,7 +351,7 @@ export default function AdminPage() {
 
       {/* Modal Adicionar Item */}
       {showAddItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
             <h3 className="text-xl font-bold text-gray-900 mb-6">Adicionar Novo Item</h3>
             
@@ -507,7 +507,7 @@ export default function AdminPage() {
 
       {/* Modal Adicionar Categoria */}
       {showAddCategory && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
             <h3 className="text-xl font-bold text-gray-900 mb-6">Adicionar Nova Categoria</h3>
             
@@ -546,7 +546,7 @@ export default function AdminPage() {
 
       {/* Modal Editar Item */}
       {editingItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
             <h3 className="text-xl font-bold text-gray-900 mb-6">Editar Item</h3>
             
