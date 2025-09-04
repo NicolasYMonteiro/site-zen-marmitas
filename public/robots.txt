@@ -1,20 +1,3 @@
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://zencomidasfit.com.br/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-# Disallow admin areas (if any)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-
-# Allow important pages
-Allow: /
-Allow: /cardapio
-Allow: /sobre
-Allow: /contato
+Sitemap: https://pitbull-tech.com.br/sitemap.xml

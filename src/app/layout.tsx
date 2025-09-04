@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { INFORMATIONS } from "@/config/informations";
+import { CartProvider } from "@/contexts/CartContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,8 +95,16 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', 'YOUR_PIXEL_ID_HERE');
+              
+              // Inicializar o pixel (substitua pelo seu Pixel ID)
+              fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID || 'YOUR_PIXEL_ID_HERE'}');
               fbq('track', 'PageView');
+              
+              // Configurações adicionais para e-commerce
+              fbq('track', 'ViewContent', {
+                content_type: 'website',
+                content_name: 'Zen Marmitas - Homepage'
+              });
             `,
           }}
         />
@@ -103,7 +113,7 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID || 'YOUR_PIXEL_ID_HERE'}&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>
@@ -140,7 +150,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
       >
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

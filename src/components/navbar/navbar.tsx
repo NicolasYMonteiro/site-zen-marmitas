@@ -1,145 +1,168 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { INFORMATIONS } from '@/config/informations';
-import { COLORS } from '@/config/colors';
+import React, { useState, useEffect } from 'react';
+import { useCart } from '@/contexts/CartContext';
+import Link from 'next/link';
 
-const Navbar = () => {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Cardápio', href: '#cardapio' },
-    { name: 'Pedido', href: '#pedido' },
-    { name: 'Contato', href: '#contato' },
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-green-100'
-          : 'bg-transparent'
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg lg:text-xl">Z</span>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl lg:text-2xl font-bold text-gray-900">
-                  {INFORMATIONS.company.name}
-                </h1>
-                <p className="text-xs text-green-600 font-medium">Comidas Fit</p>
-              </div>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isScrolled 
+                ? 'bg-gradient-to-br from-[#5d7b3b] to-[#7a9a4e]' 
+                : 'bg-white/20 backdrop-blur-sm'
+            }`}>
+              <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+                isScrolled ? 'text-white' : 'text-white'
+              }`}>
+                Z
+              </span>
             </div>
-          </div>
+            <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-[#5d7b3b]' : 'text-white'
+            }`}>
+              Zen Marmitas
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              ))}
-            </div>
+          <div className="hidden lg:flex items-center space-x-8">
+            <Link 
+              href="/" 
+              className={`font-medium transition-colors duration-200 hover:text-[#5d7b3b] ${
+                isScrolled ? 'text-gray-700' : 'text-white'
+              }`}
+            >
+              Início
+            </Link>
+            <Link 
+              href="/cardapio" 
+              className={`font-medium transition-colors duration-200 hover:text-[#5d7b3b] ${
+                isScrolled ? 'text-gray-700' : 'text-white'
+              }`}
+            >
+              Cardápio
+            </Link>
+            <Link 
+              href="/#about" 
+              className={`font-medium transition-colors duration-200 hover:text-[#5d7b3b] ${
+                isScrolled ? 'text-gray-700' : 'text-white'
+              }`}
+            >
+              Sobre
+            </Link>
+            <Link 
+              href="/#contact" 
+              className={`font-medium transition-colors duration-200 hover:text-[#5d7b3b] ${
+                isScrolled ? 'text-gray-700' : 'text-white'
+              }`}
+            >
+              Contato
+            </Link>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <a
-              href={`https://wa.me/${INFORMATIONS.contact.whatsapp}?text=Olá! Gostaria de fazer um pedido das marmitas fitness.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          {/* Desktop Right Side */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Carrinho */}
+            <Link 
+              href="/carrinho" 
+              className={`relative p-2 rounded-lg transition-all duration-200 hover:bg-[#5d7b3b]/10 ${
+                isScrolled ? 'text-[#5d7b3b]' : 'text-white'
+              }`}
             >
-              Fazer Pedido
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
               </svg>
-            </button>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#8c2121] text-white text-xs rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`lg:hidden p-2 rounded-lg transition-all duration-200 ${
+              isScrolled ? 'text-[#5d7b3b]' : 'text-white'
+            }`}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-gray-700 hover:text-green-600 block px-3 py-2 text-base font-medium transition-colors duration-200 w-full text-left"
+          <div className="lg:hidden bg-white/95 backdrop-blur-md rounded-xl mt-2 p-4 shadow-xl border border-gray-100">
+            <div className="space-y-4">
+              <Link 
+                href="/" 
+                className="block font-medium text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Início
+              </Link>
+              <Link 
+                href="/cardapio" 
+                className="block font-medium text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Cardápio
+              </Link>
+              <Link 
+                href="/#about" 
+                className="block font-medium text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sobre
+              </Link>
+              <Link 
+                href="/#contact" 
+                className="block font-medium text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contato
+              </Link>
+              
+              <div className="border-t border-gray-200 pt-4">
+                <Link 
+                  href="/carrinho" 
+                  className="flex items-center space-x-2 text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.name}
-                </button>
-              ))}
-              <div className="pt-4 pb-3 border-t border-gray-200">
-                <a
-                  href={`https://wa.me/${INFORMATIONS.contact.whatsapp}?text=Olá! Gostaria de fazer um pedido das marmitas fitness.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 block text-center"
-                >
-                  Fazer Pedido
-                </a>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                  </svg>
+                  <span>Carrinho ({totalItems})</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -147,6 +170,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

@@ -14,23 +14,27 @@ export const INFORMATIONS = {
 
   // Dados de contato
   contact: {
-    phone: '+55 11 99999-9999',
-    whatsapp: '+5511999999999',
+    phone: '(71) 99206-7664',
+    whatsapp: '5571992067664',
     email: 'contato@zencomidasfit.com.br',
     instagram: '@zencomidasfit',
     instagramUrl: 'https://www.instagram.com/zencomidasfit',
     address: {
-      street: 'Rua das Flores, 123',
-      neighborhood: 'Centro',
-      city: 'São Paulo',
-      state: 'SP',
-      cep: '01234-567',
-      full: 'Rua das Flores, 123 - Centro, São Paulo - SP, 01234-567'
+      street: 'Rua Clínio de Jesus, 344',
+      neighborhood: 'Barbalho',
+      city: 'Salvador',
+      state: 'BA',
+      cep: '40301-200',
+      full: 'Rua Clínio de Jesus, 344 - Barbalho, Salvador - BA, 40301-200'
     },
     hours: {
       weekdays: 'Segunda a Sexta: 8h às 18h',
       weekends: 'Sábado: 8h às 14h',
       sunday: 'Domingo: Fechado'
+    },
+    pix: {
+      name: 'ZEN COMIDAS FIT',
+      key: '34.073.075/0001-14'
     }
   },
 
@@ -39,78 +43,158 @@ export const INFORMATIONS = {
     goomer: 'https://www.goomer.app/zencomidasfit',
     facebook: 'https://www.facebook.com/zencomidasfit',
     tiktok: 'https://www.tiktok.com/@zencomidasfit',
-    website: 'https://zencomidasfit.com.br'
+    website: 'https://zen-comidas-natural.com.br'
   },
 
   // Cardápio
   menu: {
     categories: [
       {
-        name: 'Marmitas Fitness',
+        name: 'Combos',
         items: [
           {
             id: 1,
-            name: 'Frango Grelhado com Quinoa',
-            description: 'Peito de frango grelhado, quinoa, brócolis e cenoura',
-            price: 18.90,
-            calories: 320,
-            protein: '28g',
-            image: '/menu/frango-quinoa.jpg',
-            available: true
-          },
-          {
-            id: 2,
-            name: 'Salmão com Batata Doce',
-            description: 'Salmão grelhado, batata doce, aspargos e arroz integral',
-            price: 24.90,
-            calories: 380,
-            protein: '32g',
-            image: '/menu/salmao-batata.jpg',
-            available: true
-          },
-          {
-            id: 3,
-            name: 'Carne Magra com Abóbora',
-            description: 'Carne bovina magra, abóbora, couve-flor e arroz integral',
-            price: 22.90,
-            calories: 350,
-            protein: '30g',
-            image: '/menu/carne-abobora.jpg',
-            available: true
-          },
-          {
-            id: 4,
-            name: 'Frango Teriyaki',
-            description: 'Frango em molho teriyaki, arroz integral e legumes',
-            price: 20.90,
-            calories: 340,
-            protein: '26g',
-            image: '/menu/frango-teriyaki.jpg',
+            name: 'COMBO TRADICIONAL - 7 REFEIÇÕES',
+            description: 'Frango assado + Espaguete no alho e óleo + mix de legumes, Carne de panela + arroz branco + legumes assado, Estrogonoffe de frango + arroz branco + batata palha, Frango cremoso assado + Espaguete no alho e óleo + legumes assado, Bife acebolado + arroz branco + feijão de caldo, Escondidinho de frango com purê de abóbora (2x)',
+            price: 179.97,
+            calories: 2800,
+            protein: '140g',
+            image: '/marmita-tradicional.png',
             available: true
           }
         ]
       },
       {
-        name: 'Marmitas Vegetarianas',
+        name: 'Pratos Principais',
         items: [
           {
+            id: 2,
+            name: 'Filé de Frango Grelhado ao Molho',
+            description: 'Filé de frango grelhado com molho especial',
+            price: 25.70,
+            calories: 350,
+            protein: '32g',
+            image: '/marmita-fitness.png',
+            available: true
+          },
+          {
+            id: 3,
+            name: 'Yakisoba com Frango',
+            description: 'Macarrão yakisoba com frango e legumes',
+            price: 26.00,
+            calories: 380,
+            protein: '28g',
+            image: '/marmita-executiva.png',
+            available: true
+          },
+          {
+            id: 4,
+            name: 'Quiabada',
+            description: 'Quiabada tradicional com carne',
+            price: 25.50,
+            calories: 320,
+            protein: '25g',
+            image: '/marmita-tradicional.png',
+            available: true
+          },
+          {
             id: 5,
-            name: 'Quinoa com Legumes',
-            description: 'Quinoa, brócolis, cenoura, abobrinha e molho de ervas',
-            price: 16.90,
-            calories: 280,
-            protein: '12g',
-            image: '/menu/quinoa-legumes.jpg',
+            name: 'Tirinhas de Carne com Molho Rosa',
+            description: 'Tirinhas de carne com molho rosa especial',
+            price: 26.00,
+            calories: 340,
+            protein: '30g',
+            image: '/marmita-executiva.png',
             available: true
           },
           {
             id: 6,
-            name: 'Lentilha com Arroz Integral',
-            description: 'Lentilha, arroz integral, espinafre e tomate',
-            price: 15.90,
-            calories: 260,
-            protein: '14g',
-            image: '/menu/lentilha-arroz.jpg',
+            name: 'Moqueca de Filé de Tilápia',
+            description: 'Moqueca de tilápia com farofa de manteiga',
+            price: 29.90,
+            calories: 400,
+            protein: '35g',
+            image: '/marmita-fitness.png',
+            available: true
+          }
+        ]
+      },
+      {
+        name: 'Acompanhamentos',
+        items: [
+          {
+            id: 7,
+            name: 'Arroz Branco',
+            description: 'Arroz branco temperado',
+            price: 0.50,
+            calories: 80,
+            protein: '2g',
+            image: '/marmita-tradicional.png',
+            available: true
+          },
+          {
+            id: 8,
+            name: 'Feijão de Caldo',
+            description: 'Feijão de caldo temperado',
+            price: 0.70,
+            calories: 60,
+            protein: '3g',
+            image: '/marmita-tradicional.png',
+            available: true
+          },
+          {
+            id: 9,
+            name: 'Molho Agridoce',
+            description: 'Molho agridoce especial',
+            price: 1.50,
+            calories: 20,
+            protein: '0g',
+            image: '/marmita-fitness.png',
+            available: true
+          },
+          {
+            id: 10,
+            name: 'Purê de Batata',
+            description: 'Purê de batata cremoso',
+            price: 0.50,
+            calories: 90,
+            protein: '2g',
+            image: '/marmita-tradicional.png',
+            available: true
+          },
+          {
+            id: 11,
+            name: 'Farofa de Manteiga',
+            description: 'Farofa de manteiga temperada',
+            price: 0.00,
+            calories: 50,
+            protein: '1g',
+            image: '/marmita-tradicional.png',
+            available: true
+          }
+        ]
+      },
+      {
+        name: 'Bebidas',
+        items: [
+          {
+            id: 12,
+            name: 'Refrigerante',
+            description: 'Refrigerante gelado',
+            price: 4.50,
+            calories: 140,
+            protein: '0g',
+            image: '/refrigerante.png',
+            available: true
+          },
+          {
+            id: 13,
+            name: 'Suco Natural',
+            description: 'Suco natural de frutas',
+            price: 5.00,
+            calories: 80,
+            protein: '1g',
+            image: '/suco-natural.png',
             available: true
           }
         ]

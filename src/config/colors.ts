@@ -1,58 +1,48 @@
-// 🎨 Configuração centralizada de cores
-// Paleta de cores suaves e profissionais para psicologia
-
-export const COLORS = {
-  // Cores principais - Paleta oriental zen
-  primary: {
-    50: '#f0fdf4',
-    100: '#dcfce7',
-    200: '#bbf7d0',
-    300: '#86efac',
-    400: '#4ade80',
-    500: '#22c55e',
-    600: '#16a34a',
-    700: '#15803d',
-    800: '#166534',
-    900: '#14532d',
-  },
+// Paleta de cores Zen Marmitas
+export const colors = {
+  // Cores principais da logo
+  primary: '#5d7b3b',      // Verde zen principal
+  secondary: '#e5d689',    // Dourado zen
+  accent: '#8c2121',       // Vermelho terroso
   
   // Cores neutras
-  neutral: {
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#e5e5e5',
-    300: '#d4d4d4',
-    400: '#a3a3a3',
-    500: '#737373',
-    600: '#525252',
-    700: '#404040',
-    800: '#262626',
-    900: '#171717',
-  },
+  black: '#000000',        // Preto
+  white: '#ffffff',        // Branco
   
-  // Cores de destaque
-  accent: {
-    gold: '#f59e0b',
-    warm: '#f97316',
-    cool: '#06b6d4',
-  },
+  // Variações das cores principais
+  primaryLight: '#7a9a4e',   // Verde mais claro
+  primaryDark: '#4a622f',    // Verde mais escuro
+  secondaryLight: '#f0e4a3', // Dourado mais claro
+  secondaryDark: '#d4c675',  // Dourado mais escuro
+  accentLight: '#a52a2a',    // Vermelho mais claro
+  accentDark: '#6b1a1a',     // Vermelho mais escuro
   
-  // Cores de estado
-  status: {
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
-    info: '#3b82f6',
-  },
+  // Tons de cinza zen
+  gray50: '#fafafa',
+  gray100: '#f5f5f5',
+  gray200: '#eeeeee',
+  gray300: '#e0e0e0',
+  gray400: '#bdbdbd',
+  gray500: '#9e9e9e',
+  gray600: '#757575',
+  gray700: '#616161',
+  gray800: '#424242',
+  gray900: '#212121',
   
-  // Gradientes
+  // Gradientes zen
   gradients: {
-    primary: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-    hero: 'linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(22, 163, 74, 0.9) 100%)',
-    card: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-  }
-} as const;
-
-// Tipos para TypeScript
-export type ColorKey = keyof typeof COLORS;
-export type ColorValue = typeof COLORS[ColorKey];
+    primary: 'linear-gradient(135deg, #5d7b3b 0%, #7a9a4e 100%)',
+    secondary: 'linear-gradient(135deg, #e5d689 0%, #f0e4a3 100%)',
+    accent: 'linear-gradient(135deg, #8c2121 0%, #a52a2a 100%)',
+    zen: 'linear-gradient(135deg, #5d7b3b 0%, #e5d689 50%, #8c2121 100%)',
+    subtle: 'linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%)',
+  },
+  
+  // Sombras zen
+  shadows: {
+    sm: '0 1px 3px rgba(93, 123, 59, 0.12), 0 1px 2px rgba(93, 123, 59, 0.24)',
+    md: '0 4px 6px rgba(93, 123, 59, 0.1), 0 1px 3px rgba(93, 123, 59, 0.08)',
+    lg: '0 10px 25px rgba(93, 123, 59, 0.15), 0 3px 10px rgba(93, 123, 59, 0.1)',
+    xl: '0 20px 40px rgba(93, 123, 59, 0.15), 0 8px 16px rgba(93, 123, 59, 0.1)',
+  },
+};

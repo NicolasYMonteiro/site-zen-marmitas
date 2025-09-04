@@ -1,155 +1,149 @@
-'use client';
+import React from 'react';
 
-import { INFORMATIONS } from '@/config/informations';
+const services = [
+  {
+    icon: '🍱',
+    title: 'Marmitas Tradicionais',
+    description: 'Sabores clássicos da culinária brasileira, preparados com ingredientes frescos e muito amor.',
+    color: 'from-[#5d7b3b] to-[#7a9a4e]'
+  },
+  {
+    icon: '🥗',
+    title: 'Marmitas Fitness',
+    description: 'Opções saudáveis e nutritivas para quem busca uma alimentação equilibrada e saborosa.',
+    color: 'from-[#e5d689] to-[#f0e4a3]'
+  },
+  {
+    icon: '🌱',
+    title: 'Marmitas Vegetarianas',
+    description: 'Refeições deliciosas sem carne, ricas em proteínas vegetais e nutrientes essenciais.',
+    color: 'from-[#8c2121] to-[#a52a2a]'
+  },
+  {
+    icon: '🚚',
+    title: 'Entrega Rápida',
+    description: 'Entregamos em até 30 minutos na sua região, garantindo que sua refeição chegue quentinha.',
+    color: 'from-[#5d7b3b] to-[#e5d689]'
+  },
+  {
+    icon: '⭐',
+    title: 'Qualidade Premium',
+    description: 'Ingredientes selecionados e preparação artesanal para uma experiência gastronômica única.',
+    color: 'from-[#e5d689] to-[#8c2121]'
+  },
+  {
+    icon: '💚',
+    title: 'Compromisso Social',
+    description: 'Apoiamos produtores locais e praticamos sustentabilidade em todas as nossas operações.',
+    color: 'from-[#8c2121] to-[#5d7b3b]'
+  }
+];
 
-const Services = () => {
+export default function Services() {
   return (
-    <section id="cardapio" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">🍽️</span>
+    <div className="text-center">
+      {/* Título da seção */}
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8">
+        <span className="bg-gradient-to-r from-[#5d7b3b] to-[#8c2121] bg-clip-text text-transparent">
+          Nossos Serviços
+        </span>
+      </h2>
+      
+      {/* Subtítulo */}
+      <p className="text-lg sm:text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Descubra todas as opções que temos para você
+      </p>
+      
+      {/* Grid de serviços */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <div 
+            key={index}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-gray-100"
+          >
+            {/* Ícone com gradiente */}
+            <div className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${service.color} rounded-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300 shadow-lg mt-6`}>
+              <span>{service.icon}</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              Nosso Cardápio
-            </h2>
-          </div>
-          <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Marmitas fitness preparadas com ingredientes frescos e selecionados. 
-            Cada refeição é balanceada nutricionalmente para manter sua saúde e energia.
-          </p>
-        </div>
-
-        {/* Menu Categories */}
-        <div className="space-y-16">
-          {INFORMATIONS.menu.categories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="space-y-8">
-              {/* Category Header */}
-              <div className="text-center">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                  {category.name}
-                </h3>
-                <div className="w-16 h-0.5 bg-green-500 mx-auto"></div>
-              </div>
-
-              {/* Menu Items Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.items.map((item) => (
-                  <div key={item.id} className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-green-100 hover:border-green-200">
-                    {/* Image */}
-                    <div className="relative h-48 bg-gradient-to-br from-green-400 to-green-600 overflow-hidden">
-                      <div className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" style={{
-                        backgroundImage: `url('${item.image}')`
-                      }}>
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                        
-                        {/* Price Badge */}
-                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2">
-                          <span className="text-green-600 font-bold text-lg">
-                            R$ {item.price.toFixed(2).replace('.', ',')}
-                          </span>
-                        </div>
-
-                        {/* Availability Badge */}
-                        {item.available ? (
-                          <div className="absolute top-4 left-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-                            Disponível
-                          </div>
-                        ) : (
-                          <div className="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-                            Indisponível
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
-                        {item.name}
-                      </h4>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {item.description}
-                      </p>
-
-                      {/* Nutrition Info */}
-                      <div className="flex items-center justify-between mb-6 text-sm text-gray-500">
-                        <div className="flex items-center space-x-2">
-                          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                          <span>{item.calories} kcal</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                          <span>{item.protein} proteína</span>
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <a
-                        href={`${INFORMATIONS.links.goomer}?item=${item.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full py-3 px-6 rounded-full font-semibold text-center transition-all duration-300 ${
-                          item.available
-                            ? 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
-                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        }`}
-                      >
-                        {item.available ? 'Adicionar ao Pedido' : 'Indisponível'}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 lg:p-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              Pronto para experimentar?
+            
+            {/* Título */}
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-[#5d7b3b] transition-colors duration-300 px-6">
+              {service.title}
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Faça seu pedido agora e receba suas marmitas fitness em até 2 horas!
+            
+            {/* Descrição */}
+            <p className="text-gray-600 leading-relaxed px-6 pb-6">
+              {service.description}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href={`https://wa.me/${INFORMATIONS.contact.whatsapp}?text=Olá! Gostaria de fazer um pedido das marmitas fitness.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                </svg>
-                <span>Pedir pelo WhatsApp</span>
-              </a>
-              
-              <a
-                href={INFORMATIONS.links.goomer}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group border-2 border-green-600 text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 flex items-center space-x-2"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-                </svg>
-                <span>Ver no Goomer</span>
-              </a>
+            {/* Elemento decorativo */}
+            <div className="w-12 h-1 bg-gradient-to-r from-[#5d7b3b] to-[#e5d689] rounded-full mx-auto mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Seção de destaque */}
+      <div className="mt-20">
+        <div className="bg-gradient-to-br from-[#5d7b3b] via-[#7a9a4e] to-[#e5d689] p-8 rounded-2xl text-white relative overflow-hidden shadow-2xl">
+          {/* Elementos decorativos de fundo */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full translate-y-12 -translate-x-12"></div>
+          
+          <div className="relative text-center">
+            <h3 className="text-3xl font-bold mb-4">
+              Experimente a Diferença Zen
+            </h3>
+            <p className="text-xl mb-6 opacity-90">
+              Cada marmita é preparada com ingredientes frescos e muito amor, 
+              garantindo uma experiência gastronômica única e memorável.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Ver Cardápio Completo
+              </button>
+              <button className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Fazer Pedido Agora
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+      
+      {/* Benefícios adicionais */}
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-[#5d7b3b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">🌿</span>
+          </div>
+          <h4 className="font-semibold text-gray-900 mb-2">100% Natural</h4>
+          <p className="text-sm text-gray-600">Sem conservantes artificiais</p>
+        </div>
+        
+        <div className="text-center">
+          <div className="w-16 h-16 bg-[#e5d689]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">⚡</span>
+          </div>
+          <h4 className="font-semibold text-gray-900 mb-2">Entrega Rápida</h4>
+          <p className="text-sm text-gray-600">Em até 30 minutos</p>
+        </div>
+        
+        <div className="text-center">
+          <div className="w-16 h-16 bg-[#8c2121]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">💳</span>
+          </div>
+          <h4 className="font-semibold text-gray-900 mb-2">Pagamento Seguro</h4>
+          <p className="text-sm text-gray-600">Múltiplas formas de pagamento</p>
+        </div>
+        
+        <div className="text-center">
+          <div className="w-16 h-16 bg-[#5d7b3b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">🎯</span>
+          </div>
+          <h4 className="font-semibold text-gray-900 mb-2">Satisfação Garantida</h4>
+          <p className="text-sm text-gray-600">Ou seu dinheiro de volta</p>
+        </div>
+      </div>
+    </div>
   );
-};
-
-export default Services;
+}
