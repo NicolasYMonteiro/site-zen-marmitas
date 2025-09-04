@@ -19,7 +19,6 @@ export default function CarrinhoPage() {
     address: '',
     neighborhood: '',
     city: '',
-    state: '',
     zipCode: '',
     complement: ''
   });

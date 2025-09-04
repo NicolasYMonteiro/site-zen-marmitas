@@ -18,7 +18,6 @@ export interface CustomerInfo {
   address: string;
   neighborhood: string;
   city: string;
-  state: string;
   zipCode: string;
   complement?: string;
 }
