@@ -48,7 +48,7 @@ ${customerInfo.name}
 ${customerInfo.phone}
 
 ${customerInfo.address}${customerInfo.complement ? ` - ${customerInfo.complement}` : ''}
-${customerInfo.neighborhood}, ${customerInfo.city}/${customerInfo.state}
+${customerInfo.neighborhood}, ${customerInfo.city}/Ba
 ${customerInfo.zipCode}
 
 Pagamento: Pix
