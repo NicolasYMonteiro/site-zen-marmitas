@@ -43,7 +43,7 @@ export default function CarrinhoPage() {
   };
 
   const validateCustomerInfo = (info: CustomerInfo): boolean => {
-    return !!(info.name && info.phone && info.address && info.neighborhood && info.city && info.state && info.zipCode);
+    return !!(info.name && info.phone && info.address && info.neighborhood && info.city && info.zipCode);
   };
 
   const handleCheckout = () => {

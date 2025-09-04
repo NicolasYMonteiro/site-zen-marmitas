@@ -1,9 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useMetaPixel } from '@/hooks/useMetaPixel';
 
 export default function Contact() {
+  const router = useRouter();
   const { trackContact } = useMetaPixel();
   const [formData, setFormData] = useState({
     name: '',
@@ -132,31 +134,6 @@ export default function Contact() {
         </div>
       </div>
       
-      {/* Redes sociais */}
-      <div className="mt-16">
-        <h3 className="text-2xl font-semibold text-white mb-8">
-          Siga-nos nas Redes Sociais
-        </h3>
-        
-        <div className="flex justify-center space-x-6">
-          <a href="#" className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-            <span className="text-2xl">📘</span>
-          </a>
-          
-          <a href="#" className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-            <span className="text-2xl">📷</span>
-          </a>
-          
-          <a href="#" className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-            <span className="text-2xl">🐦</span>
-          </a>
-          
-          <a href="#" className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-            <span className="text-2xl">📺</span>
-          </a>
-        </div>
-      </div>
-      
       {/* CTA final */}
       <div className="mt-16 text-center">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 inline-block">
@@ -168,10 +145,14 @@ export default function Contact() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button 
+            onClick={() => router.push('/cardapio')}
+            className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
               Ver Cardápio
             </button>
-            <button className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button 
+            onClick={() => router.push('/carrinho')}
+            className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg">
               Fazer Pedido
             </button>
           </div>

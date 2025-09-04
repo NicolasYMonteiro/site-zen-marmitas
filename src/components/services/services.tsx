@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const services = [
   {
@@ -40,6 +41,8 @@ const services = [
 ];
 
 export default function Services() {
+  const router = useRouter();
+
   return (
     <div className="text-center">
       {/* Título da seção */}
@@ -99,10 +102,15 @@ export default function Services() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button 
+              onClick={() => router.push('/cardapio')}
+
+              className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Ver Cardápio Completo
               </button>
-              <button className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button 
+              onClick={() => router.push('/carrinho')}
+              className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Fazer Pedido Agora
               </button>
             </div>
