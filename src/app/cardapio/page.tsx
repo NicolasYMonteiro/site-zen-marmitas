@@ -113,23 +113,35 @@ export default function CardapioPage() {
       {/* Lista de itens do cardápio */}
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Estatísticas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
-              <div className="text-3xl font-bold text-[#5d7b3b] mb-2">{allMenuItems.length}</div>
-              <p className="text-gray-600">Itens no Cardápio</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
-              <div className="text-3xl font-bold text-[#e5d689] mb-2">
-                {allMenuItems.filter(item => item.available).length}
+          <div className="my-8 text-center">
+            <div className="bg-gradient-to-br from-[#5d7b3b] via-[#7a9a4e] to-[#e5d689] p-8 rounded-2xl text-white relative overflow-hidden shadow-2xl">
+              {/* Elementos decorativos */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+              
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold mb-4">
+                  Pronto para experimentar?
+                </h3>
+                <p className="text-xl mb-6 opacity-90">
+                  Adicione seus itens favoritos ao carrinho e faça seu pedido agora!
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button 
+                    onClick={() => router.push('/carrinho')}
+                    className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    Ver Carrinho
+                  </button>
+                  <button 
+                    onClick={() => router.push('/carrinho')}
+                    className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    Fazer Pedido
+                  </button>
+                </div>
               </div>
-              <p className="text-gray-600">Disponíveis</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
-              <div className="text-3xl font-bold text-[#8c2121] mb-2">
-                {menuData?.categories.length || 0}
-              </div>
-              <p className="text-gray-600">Categorias</p>
             </div>
           </div>
 
@@ -198,38 +210,6 @@ export default function CardapioPage() {
             })}
           </div>
 
-          {/* CTA final */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-br from-[#5d7b3b] via-[#7a9a4e] to-[#e5d689] p-8 rounded-2xl text-white relative overflow-hidden shadow-2xl">
-              {/* Elementos decorativos */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-              
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">
-                  Pronto para experimentar?
-                </h3>
-                <p className="text-xl mb-6 opacity-90">
-                  Adicione seus itens favoritos ao carrinho e faça seu pedido agora!
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
-                    onClick={() => router.push('/carrinho')}
-                    className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                  >
-                    Ver Carrinho
-                  </button>
-                  <button 
-                    onClick={() => router.push('/carrinho')}
-                    className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg"
-                  >
-                    Fazer Pedido
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
