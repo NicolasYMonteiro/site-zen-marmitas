@@ -90,15 +90,13 @@ export default function About() {
         </div>
         
         <div className="text-center">
-          <div className="text-4xl font-bold text-[#e5d689] mb-2">50+</div>
-          <p className="text-gray-600">Sabores Diferentes</p>
-        </div>
-        
-        <div className="text-center">
-          <div className="text-4xl font-bold text-[#8c2121] mb-2">24h</div>
+          <div className="text-4xl font-bold text-[#8c2121] mb-2">3 dias úteis</div>
           <p className="text-gray-600">Entrega Disponível</p>
         </div>
       </div>
+
+      <div className="border-t border-green-700 mt-12" />
+
     </div>
   );
 }

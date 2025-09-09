@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,38 +18,28 @@ export default function Footer() {
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Conteúdo principal do footer */}
-          <div className="py-12">
+          <div className="py-8">
 
             <div className="border-t border-white/20 pt-2 pb-2" />
 
             {/* Logo e descrição */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">Z</span>
-                </div>
+                <Image src="/logoMarca.png" alt="Logo Marca" width={80} height={20} />
                 <span className="text-2xl font-bold">Zen Marmitas</span>
               </div>
 
               <p className="text-white/90 mb-6 leading-relaxed max-w-md">
-                Descubra o equilíbrio perfeito entre tradição e inovação.
-                Nossas marmitas são preparadas com ingredientes frescos e muito amor,
-                trazendo o sabor caseiro para sua mesa.
+                Experimente nossas marmitas e traga o sabor perfeito para sua mesa.
               </p>
 
               {/* Redes sociais */}
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <span className="text-lg">📘</span>
+                <a href="https://www.instagram.com/zen.ifba/" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                  <FaInstagram className="text-white w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <span className="text-lg">📷</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <span className="text-lg">🐦</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <span className="text-lg">📺</span>
+                <a href="whatsapp://send?phone=5571981635808" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                  <FaWhatsapp className="text-white w-5 h-5" />
                 </a>
               </div>
 

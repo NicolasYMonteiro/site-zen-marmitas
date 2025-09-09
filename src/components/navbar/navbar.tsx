@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import { IoCartOutline } from "react-icons/io5";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,16 +30,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-              isScrolled 
-                ? 'bg-gradient-to-br from-[#5d7b3b] to-[#7a9a4e]' 
-                : 'bg-white/20 backdrop-blur-sm'
+            <div className={`w-13 h-13 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isScrolled ? 'bg-white/10' : 'bg-white/20'
             }`}>
-              <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-white' : 'text-white'
-              }`}>
-                Z
-              </span>
+              <Image src="/logoMarca.png" alt="Logo Marca" width={100} height={100} />
+              
             </div>
             <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-[#5d7b3b]' : 'text-white'
@@ -91,9 +88,7 @@ export default function Navbar() {
                 isScrolled ? 'text-[#5d7b3b]' : 'text-white'
               }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-              </svg>
+              <IoCartOutline className="w-6 h-7" />
               {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#8c2121] text-white text-xs rounded-full flex items-center justify-center">
                   {totalItems}
@@ -158,9 +153,7 @@ export default function Navbar() {
                   className="flex items-center space-x-2 text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-                  </svg>
+                  <IoCartOutline className="w-6 h-7" />
                   <span>Carrinho ({totalItems})</span>
                 </Link>
               </div>

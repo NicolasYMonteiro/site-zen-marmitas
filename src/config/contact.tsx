@@ -71,36 +71,11 @@ export default function Contact() {
                 <span className="text-2xl">📞</span>
               </div>
               <div>
-                <p className="text-white/80 text-sm">Telefone</p>
-                <p className="text-white font-semibold">(71) 99206-7664</p>
+                <p className="text-white/80 text-sm">Telefone e WhatsApp</p>
+                <p className="text-white font-semibold">71 98163-5808</p>
               </div>
             </div>
-            
-            {/* WhatsApp */}
-            <div 
-              className="flex items-center space-x-4 cursor-pointer hover:bg-white/10 rounded-lg p-2 transition-all duration-300"
-              onClick={() => trackContact('whatsapp')}
-            >
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl">💬</span>
-              </div>
-              <div>
-                <p className="text-white/80 text-sm">WhatsApp</p>
-                <p className="text-white font-semibold">(71) 99206-7664</p>
-              </div>
-            </div>
-            
-            {/* Email */}
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl">✉️</span>
-              </div>
-              <div>
-                <p className="text-white/80 text-sm">Email</p>
-                <p className="text-white font-semibold">contato@zenmarmitas.com</p>
-              </div>
-            </div>
-            
+         
             {/* Endereço */}
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
@@ -115,19 +90,14 @@ export default function Contact() {
           
           {/* Horário de funcionamento */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h4 className="text-lg font-semibold text-white mb-4">Horário de Funcionamento</h4>
-            <div className="space-y-2 text-white/90">
+            <h4 className="text-xl font-semibold text-white mb-4">Horário de Funcionamento</h4>
+            <div className="space-y-2 text-lg text-white">
               <div className="flex justify-between">
                 <span>Segunda a Sexta:</span>
                 <span>08:00 - 20:00</span>
               </div>
               <div className="flex justify-between">
-                <span>Sábado:</span>
-                <span>09:00 - 18:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Domingo:</span>
-                <span>10:00 - 16:00</span>
+                <span>Não Trabalhamos Sábado e Domingo</span>
               </div>
             </div>
           </div>
@@ -141,7 +111,7 @@ export default function Contact() {
             Pronto para experimentar?
           </h4>
           <p className="text-white/90 mb-6">
-            Faça seu pedido agora e receba suas marmitas zen em até 30 minutos!
+            Faça seu pedido agora e receba suas marmitas zen em até <span className="font-semibold text-xl">3 Dias Úteis!</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

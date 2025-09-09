@@ -44,7 +44,7 @@ export default function HomePage() {
       {/* Services Section */}
       <section 
       id='services'
-      className="py-20 bg-gradient-to-b from-[#fafafa] to-white"
+      className="pb-20 pt-8 bg-gradient-to-b from-[#fafafa] to-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Services />

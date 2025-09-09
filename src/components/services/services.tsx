@@ -15,15 +15,9 @@ const services = [
     color: 'from-[#e5d689] to-[#f0e4a3]'
   },
   {
-    icon: '🌱',
-    title: 'Marmitas Vegetarianas',
-    description: 'Refeições deliciosas sem carne, ricas em proteínas vegetais e nutrientes essenciais.',
-    color: 'from-[#8c2121] to-[#a52a2a]'
-  },
-  {
     icon: '🚚',
     title: 'Entrega Rápida',
-    description: 'Entregamos em até 30 minutos na sua região, garantindo que sua refeição chegue quentinha.',
+    description: 'Entregamos em até 3 dias úteis.',
     color: 'from-[#5d7b3b] to-[#e5d689]'
   },
   {
@@ -31,12 +25,6 @@ const services = [
     title: 'Qualidade Premium',
     description: 'Ingredientes selecionados e preparação artesanal para uma experiência gastronômica única.',
     color: 'from-[#e5d689] to-[#8c2121]'
-  },
-  {
-    icon: '💚',
-    title: 'Compromisso Social',
-    description: 'Apoiamos produtores locais e praticamos sustentabilidade em todas as nossas operações.',
-    color: 'from-[#8c2121] to-[#5d7b3b]'
   }
 ];
 
@@ -53,7 +41,7 @@ export default function Services() {
       </h2>
       
       {/* Subtítulo */}
-      <p className="text-lg sm:text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+      <p className="text-lg sm:text-xl text-center text-gray-700 mb-12 max-w-3xl mx-auto">
         Descubra todas as opções que temos para você
       </p>
       
@@ -75,7 +63,7 @@ export default function Services() {
             </h3>
             
             {/* Descrição */}
-            <p className="text-gray-600 leading-relaxed px-6 pb-6">
+            <p className="text-gray-700 leading-relaxed px-6 pb-6">
               {service.description}
             </p>
             
@@ -117,41 +105,53 @@ export default function Services() {
           </div>
         </div>
       </div>
-      
-      {/* Benefícios adicionais */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="text-center">
-          <div className="w-16 h-16 bg-[#5d7b3b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">🌿</span>
-          </div>
-          <h4 className="font-semibold text-gray-900 mb-2">100% Natural</h4>
-          <p className="text-sm text-gray-600">Sem conservantes artificiais</p>
+
+      {/* Instruções de uso das marmitas congeladas */}
+      <div className="mt-20 max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-[#e5d689]">
+        <div className="flex items-center justify-center mb-4">
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-[#5d7b3b] to-[#8c2121] bg-clip-text text-transparent">
+            Como usar suas MARMITAS CONGELADAS
+          </h3>
         </div>
-        
-        <div className="text-center">
-          <div className="w-16 h-16 bg-[#e5d689]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">⚡</span>
-          </div>
-          <h4 className="font-semibold text-gray-900 mb-2">Entrega Rápida</h4>
-          <p className="text-sm text-gray-600">Em até 30 minutos</p>
-        </div>
-        
-        <div className="text-center">
-          <div className="w-16 h-16 bg-[#8c2121]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">💳</span>
-          </div>
-          <h4 className="font-semibold text-gray-900 mb-2">Pagamento Seguro</h4>
-          <p className="text-sm text-gray-600">Múltiplas formas de pagamento</p>
-        </div>
-        
-        <div className="text-center">
-          <div className="w-16 h-16 bg-[#5d7b3b]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">🎯</span>
-          </div>
-          <h4 className="font-semibold text-gray-900 mb-2">Satisfação Garantida</h4>
-          <p className="text-sm text-gray-600">Ou seu dinheiro de volta</p>
-        </div>
+        <ul className="space-y-4 text-start text-gray-800 text-lg">
+          <li>
+            <span className="font-semibold">📦 Armazenamento:</span><br />
+            Guarde no freezer, em posição reta.<br />
+            <span className="italic text-gray-600">Validade: até 90 dias congelada.</span>
+          </li>
+          <li>
+            <span className="font-semibold">🕘 Descongelamento ideal:</span><br />
+            Tire do freezer e coloque na geladeira por <span className="font-semibold">8 horas</span> (ex: à noite para o almoço do dia seguinte).
+          </li>
+          <li>
+            <span className="font-semibold">🔥 Aquecimento:</span><br />
+            Você pode aquecer descongelada ou direto do congelador:
+            <ul className="ml-6 mt-2 list-disc space-y-1 text-base">
+              <li>
+                <span className="font-semibold">Micro-ondas:</span><br />
+                <span className="ml-2">• Descongelada: <span className="font-semibold">3 a 5 min</span></span><br />
+                <span className="ml-2">• Congelada: <span className="font-semibold">7 a 10 min</span> <span className="text-gray-600">(parando no meio pra mexer)</span></span>
+              </li>
+              <li>
+                <span className="font-semibold">Banho-maria (na panela):</span><br />
+                <span className="ml-2">• Com a embalagem fechada, aqueça por <span className="font-semibold">15 min</span> em água quente</span>
+              </li>
+              <li>
+                <span className="font-semibold">Forno convencional:</span><br />
+                <span className="ml-2">• Retire da embalagem e aqueça por <span className="font-semibold">15 a 20 min</span> a 180°C</span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span className="font-semibold text-[#8c2121]">⚠️ Dicas importantes:</span>
+            <ul className="ml-6 mt-1 list-disc text-base">
+              <li>Não recongele depois de descongelar</li>
+              <li>Evite deixar fora da geladeira por mais de 2 horas</li>
+            </ul>
+          </li>
+        </ul>
       </div>
+      
     </div>
   );
 }

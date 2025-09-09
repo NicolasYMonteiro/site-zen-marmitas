@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar/navbar';
+import Image from 'next/image';
 
 export default function Hero() {
   const router = useRouter();
@@ -51,7 +52,7 @@ export default function Hero() {
           </div>
           
           {/* Elementos decorativos zen */}
-          <div className="mt-16 flex justify-center space-x-8 opacity-60">
+          <div className="mt-16 flex justify-center space-x-8">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-[#e5d689] rounded-full"></div>
               <span className="text-white text-sm">Ingredientes Frescos</span>
@@ -69,10 +70,8 @@ export default function Hero() {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <Image src="/logoMarca.png" alt="Logo Marca" width={140} height={100} />
       </div>
       
       {/* Elementos decorativos flutuantes */}

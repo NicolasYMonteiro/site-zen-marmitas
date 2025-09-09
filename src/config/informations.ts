@@ -4,12 +4,12 @@
 export const INFORMATIONS = {
   // Informações da empresa
   company: {
-    name: 'Zen Comidas Fit',
+    name: 'Zen Comidas',
     tagline: 'Marmitas saudáveis, práticas e congeladas entregues na sua casa',
     description: 'Especialistas em alimentação saudável e prática, oferecendo marmitas fitness congeladas de alta qualidade, preparadas com ingredientes frescos e selecionados.',
     founded: '2023',
     mission: 'Promover saúde e bem-estar através de refeições práticas, nutritivas e deliciosas.',
-    vision: 'Ser referência em alimentação fitness congelada, facilitando a vida de quem busca uma alimentação saudável sem abrir mão da praticidade.',
+    vision: 'Ser referência em alimentação congelada, facilitando a vida de quem busca uma alimentação saudável sem abrir mão da praticidade.',
   },
 
   // Dados de contato
@@ -217,7 +217,7 @@ export const INFORMATIONS = {
     {
       icon: '🚚',
       title: 'Entrega Rápida',
-      description: 'Entrega em até 2 horas na sua região'
+      description: 'Entrega em até 3 dias úteis'
     },
     {
       icon: '♻️',
@@ -253,9 +253,9 @@ export const INFORMATIONS = {
 
   // SEO e Meta
   seo: {
-    title: 'Zen Comidas Fit - Marmitas Fitness Congeladas | São Paulo',
+    title: 'Zen Comidas - Marmitas Congeladas | Salvador, BA',
     description: 'Marmitas saudáveis, práticas e congeladas entregues na sua casa. Alimentação fitness de qualidade com ingredientes frescos e selecionados.',
-    keywords: 'marmitas fitness, comida congelada, alimentação saudável, delivery, São Paulo',
+    keywords: 'marmitas fitness, comida congelada, alimentação saudável, delivery, Salvador',
     ogImage: '/og-image.png',
     canonical: 'https://zencomidasfit.com.br'
   }

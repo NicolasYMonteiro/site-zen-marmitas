@@ -15,7 +15,7 @@ export default function CardapioPage() {
   const { menuData, loading, error } = useMenu();
 
   // Obter todos os itens do cardápio das categorias
-  const allMenuItems = menuData?.categories.flatMap(category => 
+  const allMenuItems = menuData?.categories.flatMap(category =>
     category.items.map(item => ({
       ...item,
       category: category.name
@@ -90,7 +90,7 @@ export default function CardapioPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white text-gray-800">
       <Navbar />
-      
+
       {/* Header da página */}
       <div className="pt-32 pb-16 bg-gradient-to-br from-[#5d7b3b] via-[#7a9a4e] to-[#4a622f] relative overflow-hidden">
         {/* Elementos decorativos */}
@@ -98,13 +98,13 @@ export default function CardapioPage() {
           <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full"></div>
           <div className="absolute bottom-10 left-10 w-24 h-24 bg-white/10 rounded-full"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             Nosso Cardápio
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Descubra nossa seleção de marmitas preparadas com ingredientes frescos e muito amor. 
+            Descubra nossa seleção de marmitas preparadas com ingredientes frescos e muito amor.
             Cada prato é uma experiência única de sabor e qualidade.
           </p>
         </div>
@@ -118,7 +118,7 @@ export default function CardapioPage() {
               {/* Elementos decorativos */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-              
+
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold mb-4">
                   Pronto para experimentar?
@@ -126,15 +126,15 @@ export default function CardapioPage() {
                 <p className="text-xl mb-6 opacity-90">
                   Adicione seus itens favoritos ao carrinho e faça seu pedido agora!
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
+                  <button
                     onClick={() => router.push('/carrinho')}
                     className="px-8 py-3 bg-white text-[#5d7b3b] rounded-xl font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Ver Carrinho
                   </button>
-                  <button 
+                  <button
                     onClick={() => router.push('/carrinho')}
                     className="px-8 py-3 bg-[#8c2121] text-white rounded-xl font-medium hover:bg-[#6b1a1a] transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
@@ -148,23 +148,20 @@ export default function CardapioPage() {
           {/* Grid de itens */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allMenuItems.map((item) => {
-              
+
               return (
-                <div 
+                <div
                   key={item.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 group"
+                  className="bg-white flex flex-col h-full rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 group"
                 >
                   {/* Imagem do item */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative aspect-[5/3] overflow-hidden">
                     {item.image ? (
-                      <div className="w-full h-full relative">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10"></div>
-                      </div>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-[#5d7b3b] to-[#7a9a4e] flex items-center justify-center">
                         <div className="text-center text-white">
@@ -173,7 +170,7 @@ export default function CardapioPage() {
                         </div>
                       </div>
                     )}
-                    
+
                     {/* Badge de preço */}
                     <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-2 shadow-lg">
                       <span className="text-[#5d7b3b] font-bold text-lg">
@@ -182,29 +179,28 @@ export default function CardapioPage() {
                     </div>
                   </div>
 
+
                   {/* Conteúdo do item */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#5d7b3b] transition-colors duration-300">
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl font-bold mt-2 text-gray-900 mb-3 group-hover:text-[#5d7b3b] transition-colors duration-300">
                       {item.name}
                     </h3>
-                    
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+
+                    <p className="text-gray-600 leading-relaxed flex-1">
                       {item.description}
                     </p>
 
-                    {/* Botão de adicionar ao carrinho */}
                     <button
                       onClick={() => handleAddToCart(item)}
-                      disabled={!item.available}
-                      className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
-                        item.available
-                          ? 'bg-gradient-to-r from-[#5d7b3b] to-[#7a9a4e] text-white hover:from-[#4a622f] hover:to-[#5d7b3b] shadow-lg hover:shadow-xl'
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
+                      className="w-full py-3 px-6 mt-16
+                      rounded-lg font-medium transition-all duration-300 transform hover:scale-105 bg-gradient-to-r 
+                      from-[#5d7b3b] to-[#7a9a4e] text-white hover:from-[#4a622f] hover:to-[#5d7b3b] shadow-lg
+                      hover:shadow-xl"
                     >
-                      {item.available ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                      Adicionar ao Carrinho
                     </button>
                   </div>
+
                 </div>
               );
             })}
