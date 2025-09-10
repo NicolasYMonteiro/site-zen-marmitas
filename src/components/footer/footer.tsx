@@ -32,6 +32,9 @@ export default function Footer() {
               <p className="text-white/90 mb-6 leading-relaxed max-w-md">
                 Experimente nossas marmitas e traga o sabor perfeito para sua mesa.
               </p>
+              <p className="text-white/90 mb-6 leading-relaxed max-w-md">
+                CNPJ: 34.073.075/0001-14
+              </p>
 
               {/* Redes sociais */}
               <div className="flex space-x-4">

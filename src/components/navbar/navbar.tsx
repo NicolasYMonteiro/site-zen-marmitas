@@ -77,6 +77,14 @@ export default function Navbar() {
             >
               Contato
             </Link>
+            <Link 
+              href="/faq" 
+              className={`font-medium transition-colors duration-200 hover:text-[#5d7b3b] ${
+                isScrolled ? 'text-gray-700' : 'text-white'
+              }`}
+            >
+              FAQ
+            </Link>
           </div>
 
           {/* Desktop Right Side */}
@@ -145,6 +153,13 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contato
+              </Link>
+              <Link 
+                href="/faq" 
+                className="block font-medium text-gray-700 hover:text-[#5d7b3b] transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                FAQ
               </Link>
               
               <div className="border-t border-gray-200 pt-4">

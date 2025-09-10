@@ -105,6 +105,9 @@ export default function CarrinhoPage() {
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Revise seus itens e complete seu pedido com tranquilidade
           </p>
+          <p className="text-xl font-bold text-white max-w-3xl mx-auto leading-relaxed">
+            Entregamos em até 3 dias úteis
+          </p>
         </div>
       </div>
 
