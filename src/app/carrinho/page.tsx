@@ -7,6 +7,7 @@ import Navbar from '@/components/navbar/navbar';
 import Footer from '@/components/footer/footer';
 import { generateWhatsAppMessage, generateWhatsAppUrl, generateOrderNumber } from '@/lib/whatsapp';
 import { useMetaPixel } from '@/hooks/useMetaPixel';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function CarrinhoPage() {
   const { items, removeItem, updateQuantity, totalPrice, clearCart } = useCart();
@@ -48,12 +49,12 @@ export default function CarrinhoPage() {
 
   const handleCheckout = () => {
     if (!validateCustomerInfo(customerInfo)) {
-      alert('Por favor, preencha todos os campos obrigatórios');
+      toast.error('Por favor, preencha todos os campos obrigatórios');
       return;
     }
 
     if (items.length === 0) {
-      alert('Adicione itens ao carrinho antes de fazer o pedido');
+      toast.error('Adicione itens ao carrinho antes de fazer o pedido');
       return;
     }
 
@@ -70,6 +71,9 @@ export default function CarrinhoPage() {
       // Abrir WhatsApp em nova aba
       window.open(whatsappUrl, '_blank');
 
+      // Feedback de sucesso
+      toast.success('Pedido enviado com sucesso! Redirecionando...');
+
       // Limpar carrinho após envio
       clearCart();
 
@@ -79,7 +83,7 @@ export default function CarrinhoPage() {
       }, 2000);
 
     } catch {
-      alert('Erro ao processar pedido. Tente novamente.');
+      toast.error('Erro ao processar pedido. Tente novamente.');
     } finally {
       setIsProcessing(false);
     }
@@ -153,6 +157,22 @@ export default function CarrinhoPage() {
                             <p className="text-lg font-bold text-[#5d7b3b]">
                               R$ {item.price.toFixed(2).replace('.', ',')}
                             </p>
+                            
+                            {/* Mostrar itens selecionados do combo */}
+                            {item.isCombo && item.comboSelections && item.comboSelections.length > 0 && (
+                              <div className="mt-2">
+                                <p className="text-sm font-medium text-gray-700 mb-1">Itens selecionados:</p>
+                                <div className="space-y-1">
+                                  {item.comboSelections.map((selection, index) => (
+                                    selection.quantity > 0 && (
+                                      <p key={index} className="text-xs text-gray-600">
+                                        • {selection.quantity}x {selection.subItemName}
+                                      </p>
+                                    )
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           </div>
 
                           {/* Controles de quantidade */}
@@ -302,6 +322,32 @@ export default function CarrinhoPage() {
       </div>
 
       <Footer />
+      
+      {/* Toaster para feedback visual */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#5d7b3b',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function FAQPage() {
   const faqs = [
     {
       question: "A comida é fresca ou congelada?",
-      answer: "As marmitas ZEN FIT são 100% congeladas, preparadas com ingredientes frescos e embaladas logo após o preparo. Preservam sabor, qualidade e segurança alimentar — prontas pra ir direto pro seu freezer."
+      answer: "As marmitas ZEN são 100% congeladas, preparadas com ingredientes frescos e embaladas logo após o preparo. Preservam sabor, qualidade e segurança alimentar — prontas pra ir direto pro seu freezer."
     },
     {
       question: "Quanto tempo dura?",

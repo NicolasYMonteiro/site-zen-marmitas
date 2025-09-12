@@ -28,10 +28,13 @@ export default function Hero() {
           </p>
           
           {/* Descrição */}
-          <p className="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Descubra o equilíbrio perfeito entre tradição e inovação. 
+          <p className="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed"> 
             Nossas marmitas são preparadas com ingredientes frescos e muito amor, 
             trazendo o sabor caseiro para sua mesa.
+          </p>
+
+          <p className="text-lg sm:text-xl text-white font-bold mb-12 max-w-2xl mx-auto leading-relaxed"> 
+            Personalize sua marmita com nossos combos e acompanhamentos.
           </p>
           
           {/* Botões de ação */}
@@ -52,31 +55,29 @@ export default function Hero() {
           </div>
           
           {/* Elementos decorativos zen */}
-          <div className="mt-16 flex justify-center space-x-8">
+          <div className="mt-16 flex justify-between space-x-8">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-[#e5d689] rounded-full"></div>
-              <span className="text-white text-sm">Ingredientes Frescos</span>
+              <span className="text-white text-lg lg:text-xl">Ingredientes <br /> Frescos</span>
             </div>
+
             <div className="flex items-center space-x-2">
+              <span className="text-white text-lg lg:text-xl">Sabor <br /> Caseiro</span>
               <div className="w-3 h-3 bg-[#e5d689] rounded-full"></div>
-              <span className="text-white text-sm">Entrega Rápida</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-[#e5d689] rounded-full"></div>
-              <span className="text-white text-sm">Sabor Caseiro</span>
+
             </div>
           </div>
         </div>
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Image src="/logoMarca.png" alt="Logo Marca" width={140} height={100} />
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <Image src="/logoMarca.png" alt="Logo Marca" width={120} height={100} />
       </div>
       
       {/* Elementos decorativos flutuantes */}
-      <div className="absolute top-1/4 right-10 w-20 h-20 bg-[#e5d689] rounded-full opacity-20 animate-pulse delay-700"></div>
-      <div className="absolute bottom-1/4 left-10 w-16 h-16 bg-[#8c2121] rounded-full opacity-20 animate-pulse delay-300"></div>
+      <div className="absolute top-1/4 right-10 w-20 h-20 bg-[#e5d689]/40 rounded-full opacity-20 animate-pulse delay-700"></div>
+      <div className="absolute bottom-1/4 left-10 w-16 h-16 bg-[#8c2121]/40 rounded-full opacity-20 animate-pulse delay-300"></div>
     </div>
   );
 }

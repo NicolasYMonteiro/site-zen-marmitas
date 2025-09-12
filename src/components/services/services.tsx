@@ -10,19 +10,19 @@ const services = [
   },
   {
     icon: '🥗',
+    title: 'Marmitas Vegetarianas',
+    description: 'Opções vegetarianas e nutritivas para quem busca uma alimentação equilibrada e saborosa.',
+    color: 'from-[#e5d689] to-[#f0e4a3]'
+  },
+  {
+    icon: '🥗',
     title: 'Marmitas Fitness',
     description: 'Opções saudáveis e nutritivas para quem busca uma alimentação equilibrada e saborosa.',
     color: 'from-[#e5d689] to-[#f0e4a3]'
   },
   {
-    icon: '🚚',
-    title: 'Entrega Rápida',
-    description: 'Entregamos em até 3 dias úteis.',
-    color: 'from-[#5d7b3b] to-[#e5d689]'
-  },
-  {
     icon: '⭐',
-    title: 'Qualidade Premium',
+    title: 'Qualidade e Personalização Premium',
     description: 'Ingredientes selecionados e preparação artesanal para uma experiência gastronômica única.',
     color: 'from-[#e5d689] to-[#8c2121]'
   }

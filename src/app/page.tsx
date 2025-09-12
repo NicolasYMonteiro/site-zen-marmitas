@@ -26,9 +26,9 @@ export default function HomePage() {
           <Hero />
         </div>
         {/* Elementos decorativos zen */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#e5d689] rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#8c2121] rounded-full opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[#e5d689] rounded-full opacity-30 animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#e5d689]/60 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#8c2121]/60 rounded-full opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[#e5d689]/60 rounded-full opacity-30 animate-pulse delay-500"></div>
       </section>
 
       {/* About Section */}

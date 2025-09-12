@@ -3,6 +3,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 // Tipos
+export interface ComboSelection {
+  subItemId: string;
+  subItemName: string;
+  quantity: number;
+}
+
 export interface CartItem {
   id: number;
   name: string;
@@ -10,6 +16,8 @@ export interface CartItem {
   quantity: number;
   description?: string;
   image?: string;
+  isCombo?: boolean;
+  comboSelections?: ComboSelection[];
 }
 
 export interface CustomerInfo {
@@ -25,6 +33,7 @@ export interface CustomerInfo {
 interface CartContextType {
   items: CartItem[];
   addItem: (item: Omit<CartItem, 'quantity'>) => void;
+  addComboItem: (item: Omit<CartItem, 'quantity'>, comboSelections: ComboSelection[]) => void;
   removeItem: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
@@ -57,18 +66,51 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = (newItem: Omit<CartItem, 'quantity'>) => {
     setItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === newItem.id);
+      const existingItem = prevItems.find(item => 
+        item.id === newItem.id && 
+        (!item.isCombo || JSON.stringify(item.comboSelections) === JSON.stringify(newItem.comboSelections))
+      );
       
       if (existingItem) {
         // Se o item já existe, aumenta a quantidade
         return prevItems.map(item =>
-          item.id === newItem.id
+          item.id === newItem.id && 
+          (!item.isCombo || JSON.stringify(item.comboSelections) === JSON.stringify(newItem.comboSelections))
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
         // Se é um novo item, adiciona com quantidade 1
         return [...prevItems, { ...newItem, quantity: 1 }];
+      }
+    });
+  };
+
+  const addComboItem = (newItem: Omit<CartItem, 'quantity'>, comboSelections: ComboSelection[]) => {
+    const comboItem = {
+      ...newItem,
+      isCombo: true,
+      comboSelections,
+      quantity: 1
+    };
+    
+    setItems(prevItems => {
+      const existingItem = prevItems.find(item => 
+        item.id === newItem.id && 
+        item.isCombo && 
+        JSON.stringify(item.comboSelections) === JSON.stringify(comboSelections)
+      );
+      
+      if (existingItem) {
+        return prevItems.map(item =>
+          item.id === newItem.id && 
+          item.isCombo && 
+          JSON.stringify(item.comboSelections) === JSON.stringify(comboSelections)
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevItems, comboItem];
       }
     });
   };
@@ -103,6 +145,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const value: CartContextType = {
     items,
     addItem,
+    addComboItem,
     removeItem,
     updateQuantity,
     clearCart,

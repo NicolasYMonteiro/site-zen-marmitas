@@ -1,18 +1,24 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { useCart } from '@/contexts/CartContext';
+import React, { useEffect, useState } from 'react';
+import { useCart, ComboSelection } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar/navbar';
 import Footer from '@/components/footer/footer';
 import { useMenu } from '@/hooks/useMenu';
 import { useMetaPixel } from '@/hooks/useMetaPixel';
+import ComboCustomizationModal from '@/components/combo/ComboCustomizationModal';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function CardapioPage() {
-  const { addItem } = useCart();
+  const { addItem, addComboItem } = useCart();
   const router = useRouter();
   const { trackViewContent, trackAddToCart, trackMenuView } = useMetaPixel();
   const { menuData, loading, error } = useMenu();
+  
+  // Estados para o modal de personalização de combo
+  const [isComboModalOpen, setIsComboModalOpen] = useState(false);
+  const [selectedCombo, setSelectedCombo] = useState<any>(null);
 
   // Obter todos os itens do cardápio das categorias
   const allMenuItems = menuData?.categories.flatMap(category =>
@@ -22,14 +28,32 @@ export default function CardapioPage() {
     }))
   ) || [];
 
+  // Tipo para item do menu com propriedades opcionais de combo
+  type MenuItem = typeof allMenuItems[0] & {
+    isCombo?: boolean;
+    maxSelections?: number;
+    subItems?: Array<{
+      id: string;
+      name: string;
+      description: string;
+    }>;
+  };
+
   // Rastrear visualização da página do cardápio
   useEffect(() => {
     trackViewContent('Cardápio - Zen Marmitas', 'menu');
     trackMenuView('Todos os itens');
   }, [trackViewContent, trackMenuView]);
 
-  const handleAddToCart = (item: typeof allMenuItems[0]) => {
-    // Adicionar ao carrinho
+  const handleAddToCart = (item: MenuItem) => {
+    // Verificar se é um combo
+    if (item.isCombo && item.subItems) {
+      setSelectedCombo(item);
+      setIsComboModalOpen(true);
+      return;
+    }
+
+    // Adicionar item normal ao carrinho
     addItem({
       id: item.id,
       name: item.name,
@@ -48,6 +72,33 @@ export default function CardapioPage() {
 
     // Rastrear visualização de categoria específica
     trackMenuView(item.category);
+    
+    // Feedback visual
+    toast.success(`${item.name} adicionado ao carrinho!`);
+  };
+
+  const handleComboConfirm = (selections: ComboSelection[]) => {
+    if (!selectedCombo) return;
+
+    // Adicionar combo personalizado ao carrinho
+    addComboItem({
+      id: selectedCombo.id,
+      name: selectedCombo.name,
+      price: selectedCombo.price,
+      description: selectedCombo.description,
+      image: selectedCombo.image
+    }, selections);
+
+    // Rastrear evento no Meta Pixel
+    trackAddToCart({
+      id: selectedCombo.id,
+      name: selectedCombo.name,
+      price: selectedCombo.price,
+      quantity: 1
+    });
+
+    // Rastrear visualização de categoria específica
+    trackMenuView(selectedCombo.category);
   };
 
   if (loading) {
@@ -147,7 +198,7 @@ export default function CardapioPage() {
 
           {/* Grid de itens */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allMenuItems.map((item) => {
+            {allMenuItems.map((item: MenuItem) => {
 
               return (
                 <div
@@ -197,7 +248,7 @@ export default function CardapioPage() {
                       from-[#5d7b3b] to-[#7a9a4e] text-white hover:from-[#4a622f] hover:to-[#5d7b3b] shadow-lg
                       hover:shadow-xl"
                     >
-                      Adicionar ao Carrinho
+                      {item.isCombo ? 'Personalizar Combo' : 'Adicionar ao Carrinho'}
                     </button>
                   </div>
 
@@ -210,6 +261,47 @@ export default function CardapioPage() {
       </div>
 
       <Footer />
+      
+      {/* Toaster para feedback visual */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#5d7b3b',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+
+      {/* Modal de personalização de combo */}
+      {selectedCombo && (
+        <ComboCustomizationModal
+          isOpen={isComboModalOpen}
+          onClose={() => {
+            setIsComboModalOpen(false);
+            setSelectedCombo(null);
+          }}
+          onConfirm={handleComboConfirm}
+          comboName={selectedCombo.name}
+          subItems={selectedCombo.subItems || []}
+          maxSelections={selectedCombo.maxSelections || 7}
+        />
+      )}
     </div>
   );
 }

@@ -9,28 +9,179 @@
             "name": "COMBO TRADICIONAL - 7 REFEIÇÕES",
             "description": "7 Refeições Congeladas Fit com 300 à 400 gramas cada",
             "price": 179.97,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247497/picture/medium/250819011632"
+            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247497/picture/medium/250819011632",
+            "isCombo": true,
+            "maxSelections": 7,
+            "subItems": [
+              {
+                "id": "combo_trad_1",
+                "name": "Frango assado + Espaguete no alho e óleo + mix de legumes",
+                "description": "Delicioso frango assado temperado com ervas, acompanhado de espaguete no alho e óleo e mix de legumes frescos"
+              },
+              {
+                "id": "combo_trad_2", 
+                "name": "Carne de panela, arroz branco, legumes assados",
+                "description": "Carne de panela suculenta, arroz branco soltinho e legumes assados temperados"
+              },
+              {
+                "id": "combo_trad_3",
+                "name": "Estrogonofe de frango, arroz branco, batata palha e abobrinha",
+                "description": "Cremoso estrogonofe de frango, arroz branco, batata palha crocante e abobrinha grelhada"
+              },
+              {
+                "id": "combo_trad_4",
+                "name": "Frango cremoso assado, Espaguete no alho e óleo e legumes assados",
+                "description": "Frango cremoso assado, espaguete no alho e óleo e legumes assados"
+              },
+              {
+                "id": "combo_trad_5",
+                "name": "Bife acebolado, arroz branco, feijão de caldo",
+                "description": "Bife acebolado suculento, arroz branco e feijão de caldo temperado"
+              },
+              {
+                "id": "combo_trad_6",
+                "name": "Escondidinho de frango, com purê de abóbora",
+                "description": "Escondidinho de frango desfiado com purê de abóbora cremoso"
+              }
+            ]
           },
           {
             "id": 7242890,
             "name": "COMBO VEGETARIANO - 7 REFEIÇÕES",
             "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
             "price": 174.79,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249027/picture/medium/250819011145"
+            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249027/picture/medium/250819011145",
+            "isCombo": true,
+            "maxSelections": 7,
+            "subItems": [
+              {
+                "id": "combo_veg_1",
+                "name": "Lasanha de Berinjela",
+                "description": "Lasanha diferenciada feita apenas com lâminas da berinjela e queijo"
+              },
+              {
+                "id": "combo_veg_2",
+                "name": "Quibe de Abóbora com Ricota",
+                "description": "Delicioso quibe de abóbora com ricota e acompanhamentos"
+              },
+              {
+                "id": "combo_veg_3",
+                "name": "Quibe com Ricota",
+                "description": "Quibe tradicional com ricota e acompanhamentos"
+              },
+              {
+                "id": "combo_veg_4",
+                "name": "Torta de Ricota com Espinafre",
+                "description": "Torta cremosa de ricota com espinafre"
+              },
+              {
+                "id": "combo_veg_5",
+                "name": "Rondelli de Abóbora e Creme de Ricota e Espinafre",
+                "description": "Rondelli com purê de abóbora e pasta de ricota"
+              },
+              {
+                "id": "combo_veg_6",
+                "name": "Yakisoba Vegetariano",
+                "description": "Yakisoba com legumes frescos e temperado"
+              }
+            ]
           },
           {
             "id": 7240858,
             "name": "COMBO FIT - 7 REFEIÇÕES",
             "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
             "price": 181.93,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7246993/picture/medium/250819011229"
+            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7246993/picture/medium/250819011229",
+            "isCombo": true,
+            "maxSelections": 7,
+            "subItems": [
+              {
+                "id": "combo_fit_1",
+                "name": "Filé de Frango Grelhado",
+                "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
+              },
+              {
+                "id": "combo_fit_2",
+                "name": "Filé de Frango Grelhado ao Molho",
+                "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
+              },
+              {
+                "id": "combo_fit_3",
+                "name": "Frango à Parmegiana",
+                "description": "Filé de frango à parmegiana com 2 acompanhamentos"
+              },
+              {
+                "id": "combo_fit_4",
+                "name": "Frango Cordon Bleu",
+                "description": "Frango cordon bleu crocante e cremoso"
+              },
+              {
+                "id": "combo_fit_5",
+                "name": "Lasanha de Frango",
+                "description": "Lasanha de frango com molho artesanal"
+              },
+              {
+                "id": "combo_fit_6",
+                "name": "Yakisoba com Frango",
+                "description": "Yakisoba com frango e legumes frescos"
+              }
+            ]
           },
           {
             "id": 7240866,
             "name": "COMBO FIT - 14 REFEIÇÕES",
             "description": "14 Refeições Congeladas Fit com 300 à 400 gramas cada",
             "price": 349.86,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247001/picture/medium/250819011334"
+            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247001/picture/medium/250819011334",
+            "isCombo": true,
+            "maxSelections": 14,
+            "subItems": [
+              {
+                "id": "combo_fit14_1",
+                "name": "Filé de Frango Grelhado",
+                "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
+              },
+              {
+                "id": "combo_fit14_2",
+                "name": "Filé de Frango Grelhado ao Molho",
+                "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
+              },
+              {
+                "id": "combo_fit14_3",
+                "name": "Frango à Parmegiana",
+                "description": "Filé de frango à parmegiana com 2 acompanhamentos"
+              },
+              {
+                "id": "combo_fit14_4",
+                "name": "Frango Cordon Bleu",
+                "description": "Frango cordon bleu crocante e cremoso"
+              },
+              {
+                "id": "combo_fit14_5",
+                "name": "Lasanha de Frango",
+                "description": "Lasanha de frango com molho artesanal"
+              },
+              {
+                "id": "combo_fit14_6",
+                "name": "Yakisoba com Frango",
+                "description": "Yakisoba com frango e legumes frescos"
+              },
+              {
+                "id": "combo_fit14_7",
+                "name": "Carne de Panela",
+                "description": "Carne de panela com 2 acompanhamentos à sua escolha"
+              },
+              {
+                "id": "combo_fit14_8",
+                "name": "Bife Acebolado",
+                "description": "Bife acebolado com acompanhamentos"
+              },
+              {
+                "id": "combo_fit14_9",
+                "name": "Tirinhas de Carne com Molho Rosa",
+                "description": "Tirinhas de carne com molho rosa e acompanhamentos"
+              }
+            ]
           }
         ]
       },

@@ -55,7 +55,7 @@ export default function About() {
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[#8c2121] rounded-full"></div>
-                <span>Responsabilidade social e ambiental</span>
+                <span>Responsabilidade e compromisso</span>
               </li>
             </ul>
           </div>
@@ -69,7 +69,13 @@ export default function About() {
               <div className="w-full h-full flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-6xl mb-4">🍱</div>
-                  <p className="text-xl font-medium">Sabor Autêntico</p>
+                  <p className="text-xl font-bold">            
+                    Personalize sua marmita com nossos combos e acompanhamentos.
+                  </p>
+
+                  <p className="text-xl">
+                    Escolha seu combo e personalize sua marmita do seu jeito.
+                  </p>
                 </div>
               </div>
             </div>

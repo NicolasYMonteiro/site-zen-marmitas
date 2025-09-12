@@ -34,6 +34,16 @@ Pedido Zen Delivery #${orderNumber} - Zen Comidas
       message += `\n - ${item.description}`;
     }
     
+    // Se for um combo personalizado, mostrar as seleções
+    if (item.isCombo && item.comboSelections && item.comboSelections.length > 0) {
+      message += `\n   *Itens selecionados:*`;
+      item.comboSelections.forEach(selection => {
+        if (selection.quantity > 0) {
+          message += `\n   • ${selection.quantity}x ${selection.subItemName}`;
+        }
+      });
+    }
+    
     message += '\n\n';
   });
 
