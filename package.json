@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup-cms": "node scripts/setup-github-oauth.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
@@ -14,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.3",
     "@types/jsonwebtoken": "^9.0.10",
     "bcryptjs": "^3.0.2",
+    "decap-cms-app": "^3.8.3",
     "framer-motion": "^12.23.12",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.3",
