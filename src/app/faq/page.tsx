@@ -68,7 +68,20 @@ export default function FAQPage() {
     {
       question: "As marmitas são feitas na hora ou já estão prontas?",
       answer: "Todas as nossas marmitas são feitas por encomenda, de forma artesanal e cuidadosa. Após a confirmação do pedido e pagamento, entregamos em até 3 dias úteis."
+    },
+    {
+      question: "O que significa “embalagem livre de BPA”? Por que isso é importante?",
+      answer: (
+        <div>
+          <p>BPA é uma substância química usada em alguns plásticos que, quando aquecida, pode liberar toxinas prejudiciais à saúde.</p>
+          <p>Nossas marmitas são embaladas em recipientes térmicos livres de BPA, garantindo mais segurança para você e sua família — mesmo ao aquecer no micro-ondas ou banho-maria.</p>
+          <p>✔ Mais saúde</p>
+          <p>✔ Mais segurança alimentar</p>
+          <p>✔ Mais confiança no seu dia a dia</p>
+        </div>
+      )
     }
+
   ];
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -39,10 +39,13 @@ export default function Footer() {
               {/* Redes sociais */}
               <div className="flex space-x-4">
                 <a href="https://www.instagram.com/zen.ifba/" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <FaInstagram className="text-white w-5 h-5" />
+                  <FaInstagram className=" w-5 h-5 text-[#E4405F]" />
                 </a>
                 <a href="whatsapp://send?phone=5571981635808" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
-                  <FaWhatsapp className="text-white w-5 h-5" />
+                  <FaWhatsapp className=" w-5 h-5 text-[#25D366]" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                  <FaFacebook className=" w-5 h-5 text-[#1877F2]" />
                 </a>
               </div>
 
