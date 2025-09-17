@@ -1,410 +1,411 @@
 {
-"categories": [
-      {
-        "id": 1174264,
-        "name": "COMBOS",
-        "items": [
-          {
-            "id": 7241362,
-            "name": "COMBO TRADICIONAL - 7 REFEIÇÕES",
-            "description": "7 Refeições Congeladas Fit com 300 à 400 gramas cada",
-            "price": 179.97,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247497/picture/medium/250819011632",
-            "isCombo": true,
-            "maxSelections": 7,
-            "subItems": [
-              {
-                "id": "combo_trad_1",
-                "name": "Frango assado + Espaguete no alho e óleo + mix de legumes",
-                "description": "Delicioso frango assado temperado com ervas, acompanhado de espaguete no alho e óleo e mix de legumes frescos"
-              },
-              {
-                "id": "combo_trad_2", 
-                "name": "Carne de panela, arroz branco, legumes assados",
-                "description": "Carne de panela suculenta, arroz branco soltinho e legumes assados temperados"
-              },
-              {
-                "id": "combo_trad_3",
-                "name": "Estrogonofe de frango, arroz branco, batata palha e abobrinha",
-                "description": "Cremoso estrogonofe de frango, arroz branco, batata palha crocante e abobrinha grelhada"
-              },
-              {
-                "id": "combo_trad_4",
-                "name": "Frango cremoso assado, Espaguete no alho e óleo e legumes assados",
-                "description": "Frango cremoso assado, espaguete no alho e óleo e legumes assados"
-              },
-              {
-                "id": "combo_trad_5",
-                "name": "Bife acebolado, arroz branco, feijão de caldo",
-                "description": "Bife acebolado suculento, arroz branco e feijão de caldo temperado"
-              },
-              {
-                "id": "combo_trad_6",
-                "name": "Escondidinho de frango, com purê de abóbora",
-                "description": "Escondidinho de frango desfiado com purê de abóbora cremoso"
-              }
-            ]
-          },
-          {
-            "id": 7242890,
-            "name": "COMBO VEGETARIANO - 7 REFEIÇÕES",
-            "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
-            "price": 174.79,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249027/picture/medium/250819011145",
-            "isCombo": true,
-            "maxSelections": 7,
-            "subItems": [
-              {
-                "id": "combo_veg_1",
-                "name": "Lasanha de Berinjela",
-                "description": "Lasanha diferenciada feita apenas com lâminas da berinjela e queijo"
-              },
-              {
-                "id": "combo_veg_2",
-                "name": "Quibe de Abóbora com Ricota",
-                "description": "Delicioso quibe de abóbora com ricota e acompanhamentos"
-              },
-              {
-                "id": "combo_veg_3",
-                "name": "Quibe com Ricota",
-                "description": "Quibe tradicional com ricota e acompanhamentos"
-              },
-              {
-                "id": "combo_veg_4",
-                "name": "Torta de Ricota com Espinafre",
-                "description": "Torta cremosa de ricota com espinafre"
-              },
-              {
-                "id": "combo_veg_5",
-                "name": "Rondelli de Abóbora e Creme de Ricota e Espinafre",
-                "description": "Rondelli com purê de abóbora e pasta de ricota"
-              },
-              {
-                "id": "combo_veg_6",
-                "name": "Yakisoba Vegetariano",
-                "description": "Yakisoba com legumes frescos e temperado"
-              }
-            ]
-          },
-          {
-            "id": 7240858,
-            "name": "COMBO FIT - 7 REFEIÇÕES",
-            "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
-            "price": 181.93,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7246993/picture/medium/250819011229",
-            "isCombo": true,
-            "maxSelections": 7,
-            "subItems": [
-              {
-                "id": "combo_fit_1",
-                "name": "Filé de Frango Grelhado",
-                "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
-              },
-              {
-                "id": "combo_fit_2",
-                "name": "Filé de Frango Grelhado ao Molho",
-                "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
-              },
-              {
-                "id": "combo_fit_3",
-                "name": "Frango à Parmegiana",
-                "description": "Filé de frango à parmegiana com 2 acompanhamentos"
-              },
-              {
-                "id": "combo_fit_4",
-                "name": "Frango Cordon Bleu",
-                "description": "Frango cordon bleu crocante e cremoso"
-              },
-              {
-                "id": "combo_fit_5",
-                "name": "Lasanha de Frango",
-                "description": "Lasanha de frango com molho artesanal"
-              },
-              {
-                "id": "combo_fit_6",
-                "name": "Yakisoba com Frango",
-                "description": "Yakisoba com frango e legumes frescos"
-              }
-            ]
-          },
-          {
-            "id": 7240866,
-            "name": "COMBO FIT - 14 REFEIÇÕES",
-            "description": "14 Refeições Congeladas Fit com 300 à 400 gramas cada",
-            "price": 349.86,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247001/picture/medium/250819011334",
-            "isCombo": true,
-            "maxSelections": 14,
-            "subItems": [
-              {
-                "id": "combo_fit14_1",
-                "name": "Filé de Frango Grelhado",
-                "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
-              },
-              {
-                "id": "combo_fit14_2",
-                "name": "Filé de Frango Grelhado ao Molho",
-                "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
-              },
-              {
-                "id": "combo_fit14_3",
-                "name": "Frango à Parmegiana",
-                "description": "Filé de frango à parmegiana com 2 acompanhamentos"
-              },
-              {
-                "id": "combo_fit14_4",
-                "name": "Frango Cordon Bleu",
-                "description": "Frango cordon bleu crocante e cremoso"
-              },
-              {
-                "id": "combo_fit14_5",
-                "name": "Lasanha de Frango",
-                "description": "Lasanha de frango com molho artesanal"
-              },
-              {
-                "id": "combo_fit14_6",
-                "name": "Yakisoba com Frango",
-                "description": "Yakisoba com frango e legumes frescos"
-              },
-              {
-                "id": "combo_fit14_7",
-                "name": "Carne de Panela",
-                "description": "Carne de panela com 2 acompanhamentos à sua escolha"
-              },
-              {
-                "id": "combo_fit14_8",
-                "name": "Bife Acebolado",
-                "description": "Bife acebolado com acompanhamentos"
-              },
-              {
-                "id": "combo_fit14_9",
-                "name": "Tirinhas de Carne com Molho Rosa",
-                "description": "Tirinhas de carne com molho rosa e acompanhamentos"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 1174587,
-        "name": "FRANGO",
-        "items": [
-          {
-            "id": 7243646,
-            "name": "Filé de Frango Grelhado",
-            "description": "Delicioso Filé de Frango Grelhado com 2 acompanhamentos a sua escolha. Totalizando o prato com aproximadamente 350 gramas",
-            "price": 25.70,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249784/picture/medium/250818234844"
-          },
-          {
-            "id": 7243789,
-            "name": "Filé de Frango Grelhado ao Molho",
-            "description": "Delicioso Filé de Frango com molho a sua escolha e ainda a liberdade de escolher 2 acompanhamentos",
-            "price": 26.90,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249927/picture/medium/250818234905"
-          },
-          {
-            "id": 7243210,
-            "name": "Frango à Parmegiana",
-            "description": "350 gramas de Filé de Frango, temperado na medida, uma camada de molho de tomate artesanal, finalizando com queijo muçarela e orégano. E com 2 acompanhamentos a sua escolha",
-            "price": 26.25,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249348/picture/medium/250818234923"
-          },
-          {
-            "id": 7243437,
-            "name": "Frango Cordon Bleu",
-            "description": "Crocante por fora, cremoso por dentro!!! Queijo, presunto envolvidos no filé de frango, empanado com ovo, farinha de trigo, farinha de rosca e temperado na medida e para finalizar uma camada gênero de molho",
-            "price": 28.00,
-            "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249574/picture/medium/250818234958"
-          },
-          {
-            "id": 7243908,
-            "name": "Lasanha de Frango",
-            "description": "Camadas de molho de tomate artesanal, massa, frango cozido desfiado, queijo muçarela, presunto e finalizando com uma generosa camada de molho branco",
-            "price": 26.70
-          },
-          {
-            "id": 7243627,
-            "name": "Yakisoba com Frango",
-            "description": "Filé de Frango em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
-            "price": 26.00
-          }
-        ]
-      },
-      {
-        "id": 1174760,
-        "name": "CARNE VERMELHA",
-        "items": [
-          {
-            "id": 7243983,
-            "name": "Quiabada",
-            "description": "Quiabada temperadinha com sabor caseiro e você ainda tem a liberdade de escolher 2 acompanhamentos",
-            "price": 25.50
-          },
-          {
-            "id": 7243981,
-            "name": "Tirinhas de carne com molho rosa",
-            "description": "Ainda tem a liberdade de escolher 2 acompanhamentos. Totalizando o prato com aproximadamente 350 gramas",
-            "price": 26.00
-          },
-          {
-            "id": 7243986,
-            "name": "Carne de Panela",
-            "description": "Você ainda tem a liberdade de escolher 2 acompanhamentos. Totalizando o prato com aproximadamente 350 gramas",
-            "price": 25.50
-          },
-          {
-            "id": 7243985,
-            "name": "Bife Acebolado",
-            "description": "Carne Bovina, cebola, alho, óleo de soja, sal, pimenta cuminho. Típico prato brasileiro, gostoso e nutritivo, não tem como resistir e tem aqueles que amam colocar farinha para da um toque final",
-            "price": 25.50
-          },
-          {
-            "id": 7243984,
-            "name": "Yakisoba Carne",
-            "description": "Filé de carne em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
-            "price": 28.00
-          }
-        ]
-      },
-      {
-        "id": 1174798,
-        "name": "PEIXE",
-        "items": [
-          {
-            "id": 7244212,
-            "name": "Filé de Tilápia Grelhado",
-            "description": "Filé de tilápia temperado com ervas, empanado com ovos, faria de trigo, frito em óleo quente. Você pode escolher até 2 acompanhamentos",
-            "price": 28.99
-          },
-          {
-            "id": 7244211,
-            "name": "Filé de Tilápia Assada",
-            "description": "Filé de Tilapia temperado com ervas na medida, assado com sua própria gordura. Aproximadamente 350 gramas com 2 acompanhamentos que vocês escolhem",
-            "price": 28.99
-          },
-          {
-            "id": 7246313,
-            "name": "Salmão Desfiado",
-            "description": "Filé de Salmão temperado com ervas finas, assado com sua própia gordura, levimente Desfiado → com os acompanhamento totaliza aproximadamente 350 gramas de comida",
-            "price": 40.00
-          },
-          {
-            "id": 7244215,
-            "name": "Moqueca de Filé de Tilapia",
-            "description": "Feita com o filé de tilápia, cebola, Pimentão, tomate em cubos, azeite de dende, leite de coco e finalizando com cheiro verde",
-            "price": 29.90
-          },
-          {
-            "id": 7244214,
-            "name": "Salmão ao Molho",
-            "description": "Filé de Salmão assado, finalizando com delicioso molho a sua escolha (molho de limão siciliano, molho rosé ou molho de maracujá)→ com os acompanhamento totaliza aproximadamente 350 gramas de comida",
-            "price": 46.20
-          }
-        ]
-      },
-      {
-        "id": 1174838,
-        "name": "SUINO",
-        "items": [
-          {
-            "id": 7244466,
-            "name": "Estrogonofe de Filé Suino",
-            "description": "Nossa comida congelada, vem no total: 350 gramas de comida. Você pode escolher até 2 acompanhamentos",
-            "price": 23.99
-          },
-          {
-            "id": 7244469,
-            "name": "Lombo Suino ao Molho",
-            "description": "Nossa comida congelada, vem no total: 350 gramas de comida. Você pode escolher até 2 acompanhamentos",
-            "price": 26.19
-          }
-        ]
-      },
-      {
-        "id": 1174860,
-        "name": "VEGETARIANA",
-        "items": [
-          {
-            "id": 7244598,
-            "name": "Lasanha de Berinjela",
-            "description": "Nossa Lasanha é diferenciada, feita apenas com as lâminas da berinjela e queijo. São 2 camadas ao todo, ficando mais de 350 gramas na marmita. Usamos Molho de Tomate Rústico Artesanal em toda lasanha e finalizamos com Molho o Branco com 2 queijos",
-            "price": 23.99
-          },
-          {
-            "id": 7244596,
-            "name": "Quibe de Abóbora com Ricota",
-            "description": "Delicioso Quibe de Abóbora com Ricota e com 2 acompanhamentos escolhidos por vocês. O prato possui aproximadamente 350 gramas",
-            "price": 22.99
-          },
-          {
-            "id": 7244595,
-            "name": "Quibe com Ricota",
-            "description": "Delicioso Quibe com Ricota e com 2 acompanhamentos escolhidos por vocês. O prato possui aproximadamente 350 gramas",
-            "price": 21.99
-          },
-          {
-            "id": 7244599,
-            "name": "Torta de Ricota com Espinafre",
-            "description": "Nossa comida congelada, vem no total: 350 gramas; Você pode escolher até 2 acompanhamentos. Isso mesmo, nosso diferencial é que você pode escolher o que come",
-            "price": 24.00
-          },
-          {
-            "id": 7244597,
-            "name": "Rondelli de Abobora e Creme de Ricota e Espinafre",
-            "description": "Preparado com massa de pastel, recheado avec purê de abóbora assado com ervas finas e uma camada fina de pasta de ricota com Castanha do Pará tostada. Leva também Molho Artesanal de Tomate",
-            "price": 25.97
-          },
-          {
-            "id": 7244600,
-            "name": "Yakisoba Vegetariano",
-            "description": "Brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos frescos e cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado. O prato tem aproximadamente 350 gramas",
-            "price": 24.97
-          }
-        ]
-      },
-      {
-        "id": 1175044,
-        "name": "VEGANOS",
-        "items": [
-          {
-            "id": 7245725,
-            "name": "Hamburguer Vegano",
-            "description": "Nossa comida congelada, vem no total: 350 gramas; Você pode escolher até 2 acompanhamentos. Isso mesmo, nosso diferencial é que você pode escolher o que come",
-            "price": 22.99
-          },
-          {
-            "id": 7245728,
-            "name": "Almôndegas ao Molho Sugo",
-            "description": "Almondegas a sua escolha feita Artesanalmente cobertas com um delicioso Molho Artesanal. Você pode escolher até 2 acompanhamentos",
-            "price": 23.57
-          },
-          {
-            "id": 7245723,
-            "name": "Fusilli ao Molho de Tomate, Berinjela, Abobrinha e Almôndega",
-            "description": "Macarrão Fusilli com Molho de Tomate Artesanal, Berinjela, Abobrinha e Almôndegas a sua escolha. O prato possui em média 350 gramas",
-            "price": 23.97
-          },
-          {
-            "id": 7245727,
-            "name": "Moqueca de Palmito e Banana da Terra",
-            "description": "Nossa Moqueca é feita com Palmito, banana da terra, pimentão, cebola, tomate, azeite de dende, leite de coco, finalizando com cheiro verde",
-            "price": 25.99
-          },
-          {
-            "id": 7245726,
-            "name": "Empadão Vegano",
-            "description": "MASSA: farinha de aveia, trigo e amido de milho - RECHEIO: palmito, cenoura, vargem, catupiry de inhame OU Soja com catupiry de inhame",
-            "price": 25.90
-          },
-          {
-            "id": 7246505,
-            "name": "Estrogonofe de Grão-de-Bico",
-            "description": "Delicioso Estrogonofe de Grão de Bico VEGANA, minuciosamente equilibrada com molho artesanal de tomate e creme de leite de aveia. Acompanhada com 2 (duas) guarnições à sua escolha. Totalizando o prato com aproximadamente 350 gramas",
-            "price": 25.00
-          }
-        ]
-      }
+  "categories": [
+    {
+      "id": 1174264,
+      "name": "COMBOS",
+      "items": [
+        {
+          "subItems": [
+            {
+              "id": "combo_trad_1",
+              "name": "Frango assado + Espaguete no alho e óleo + mix de legumes",
+              "description": "Delicioso frango assado temperado com ervas, acompanhado de espaguete no alho e óleo e mix de legumes frescos"
+            },
+            {
+              "id": "combo_trad_2",
+              "name": "Carne de panela, arroz branco, legumes assados",
+              "description": "Carne de panela suculenta, arroz branco soltinho e legumes assados temperados"
+            },
+            {
+              "id": "combo_trad_3",
+              "name": "Estrogonofe de frango, arroz branco, batata palha e abobrinha",
+              "description": "Cremoso estrogonofe de frango, arroz branco, batata palha crocante e abobrinha grelhada"
+            },
+            {
+              "id": "combo_trad_4",
+              "name": "Frango cremoso assado, Espaguete no alho e óleo e legumes assados",
+              "description": "Frango cremoso assado, espaguete no alho e óleo e legumes assados"
+            },
+            {
+              "id": "combo_trad_5",
+              "name": "Bife acebolado, arroz branco, feijão de caldo",
+              "description": "Bife acebolado suculento, arroz branco e feijão de caldo temperado"
+            },
+            {
+              "id": "combo_trad_6",
+              "name": "Escondidinho de frango, com purê de abóbora",
+              "description": "Escondidinho de frango desfiado com purê de abóbora cremoso"
+            }
+          ],
+          "isCombo": true,
+          "price": 219.96,
+          "available": true,
+          "maxSelections": 7,
+          "name": "COMBO TRADICIONAL - 8 REFEIÇÕES",
+          "id": 7241362,
+          "image": "/images/menu/sports-car-mountains-retrowave-synthwave-hd-wallpaper-uhdpaper.com-233-0-k.jpg",
+          "description": "8 Refeições Congeladas Fit com 300 à 400 gramas cada"
+        },
+        {
+          "id": 7242890,
+          "name": "COMBO VEGETARIANO - 7 REFEIÇÕES",
+          "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
+          "price": 174.79,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249027/picture/medium/250819011145",
+          "isCombo": true,
+          "maxSelections": 7,
+          "subItems": [
+            {
+              "id": "combo_veg_1",
+              "name": "Lasanha de Berinjela",
+              "description": "Lasanha diferenciada feita apenas com lâminas da berinjela e queijo"
+            },
+            {
+              "id": "combo_veg_2",
+              "name": "Quibe de Abóbora com Ricota",
+              "description": "Delicioso quibe de abóbora com ricota e acompanhamentos"
+            },
+            {
+              "id": "combo_veg_3",
+              "name": "Quibe com Ricota",
+              "description": "Quibe tradicional com ricota e acompanhamentos"
+            },
+            {
+              "id": "combo_veg_4",
+              "name": "Torta de Ricota com Espinafre",
+              "description": "Torta cremosa de ricota com espinafre"
+            },
+            {
+              "id": "combo_veg_5",
+              "name": "Rondelli de Abóbora e Creme de Ricota e Espinafre",
+              "description": "Rondelli com purê de abóbora e pasta de ricota"
+            },
+            {
+              "id": "combo_veg_6",
+              "name": "Yakisoba Vegetariano",
+              "description": "Yakisoba com legumes frescos e temperado"
+            }
+          ]
+        },
+        {
+          "id": 7240858,
+          "name": "COMBO FIT - 7 REFEIÇÕES",
+          "description": "7 Refeições Congelada Fit com 300 à 400 gramas cada",
+          "price": 181.93,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7246993/picture/medium/250819011229",
+          "isCombo": true,
+          "maxSelections": 7,
+          "subItems": [
+            {
+              "id": "combo_fit_1",
+              "name": "Filé de Frango Grelhado",
+              "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
+            },
+            {
+              "id": "combo_fit_2",
+              "name": "Filé de Frango Grelhado ao Molho",
+              "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
+            },
+            {
+              "id": "combo_fit_3",
+              "name": "Frango à Parmegiana",
+              "description": "Filé de frango à parmegiana com 2 acompanhamentos"
+            },
+            {
+              "id": "combo_fit_4",
+              "name": "Frango Cordon Bleu",
+              "description": "Frango cordon bleu crocante e cremoso"
+            },
+            {
+              "id": "combo_fit_5",
+              "name": "Lasanha de Frango",
+              "description": "Lasanha de frango com molho artesanal"
+            },
+            {
+              "id": "combo_fit_6",
+              "name": "Yakisoba com Frango",
+              "description": "Yakisoba com frango e legumes frescos"
+            }
+          ]
+        },
+        {
+          "id": 7240866,
+          "name": "COMBO FIT - 14 REFEIÇÕES",
+          "description": "14 Refeições Congeladas Fit com 300 à 400 gramas cada",
+          "price": 349.86,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247001/picture/medium/250819011334",
+          "isCombo": true,
+          "maxSelections": 14,
+          "subItems": [
+            {
+              "id": "combo_fit14_1",
+              "name": "Filé de Frango Grelhado",
+              "description": "Filé de frango grelhado com 2 acompanhamentos à sua escolha"
+            },
+            {
+              "id": "combo_fit14_2",
+              "name": "Filé de Frango Grelhado ao Molho",
+              "description": "Filé de frango com molho à sua escolha e 2 acompanhamentos"
+            },
+            {
+              "id": "combo_fit14_3",
+              "name": "Frango à Parmegiana",
+              "description": "Filé de frango à parmegiana com 2 acompanhamentos"
+            },
+            {
+              "id": "combo_fit14_4",
+              "name": "Frango Cordon Bleu",
+              "description": "Frango cordon bleu crocante e cremoso"
+            },
+            {
+              "id": "combo_fit14_5",
+              "name": "Lasanha de Frango",
+              "description": "Lasanha de frango com molho artesanal"
+            },
+            {
+              "id": "combo_fit14_6",
+              "name": "Yakisoba com Frango",
+              "description": "Yakisoba com frango e legumes frescos"
+            },
+            {
+              "id": "combo_fit14_7",
+              "name": "Carne de Panela",
+              "description": "Carne de panela com 2 acompanhamentos à sua escolha"
+            },
+            {
+              "id": "combo_fit14_8",
+              "name": "Bife Acebolado",
+              "description": "Bife acebolado com acompanhamentos"
+            },
+            {
+              "id": "combo_fit14_9",
+              "name": "Tirinhas de Carne com Molho Rosa",
+              "description": "Tirinhas de carne com molho rosa e acompanhamentos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1174587,
+      "name": "FRANGO",
+      "items": [
+        {
+          "id": 7243646,
+          "name": "Filé de Frango Grelhado",
+          "description": "Delicioso Filé de Frango Grelhado com 2 acompanhamentos a sua escolha. Totalizando o prato com aproximadamente 350 gramas",
+          "price": 25.7,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249784/picture/medium/250818234844"
+        },
+        {
+          "id": 7243789,
+          "name": "Filé de Frango Grelhado ao Molho",
+          "description": "Delicioso Filé de Frango com molho a sua escolha e ainda a liberdade de escolher 2 acompanhamentos",
+          "price": 26.9,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249927/picture/medium/250818234905"
+        },
+        {
+          "id": 7243210,
+          "name": "Frango à Parmegiana",
+          "description": "350 gramas de Filé de Frango, temperado na medida, uma camada de molho de tomate artesanal, finalizando com queijo muçarela e orégano. E com 2 acompanhamentos a sua escolha",
+          "price": 26.25,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249348/picture/medium/250818234923"
+        },
+        {
+          "id": 7243437,
+          "name": "Frango Cordon Bleu",
+          "description": "Crocante por fora, cremoso por dentro!!! Queijo, presunto envolvidos no filé de frango, empanado com ovo, farinha de trigo, farinha de rosca e temperado na medida e para finalizar uma camada gênero de molho",
+          "price": 28,
+          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249574/picture/medium/250818234958"
+        },
+        {
+          "id": 7243908,
+          "name": "Lasanha de Frango",
+          "description": "Camadas de molho de tomate artesanal, massa, frango cozido desfiado, queijo muçarela, presunto e finalizando com uma generosa camada de molho branco",
+          "price": 26.7
+        },
+        {
+          "id": 7243627,
+          "name": "Yakisoba com Frango",
+          "description": "Filé de Frango em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
+          "price": 26
+        }
+      ]
+    },
+    {
+      "id": 1174760,
+      "name": "CARNE VERMELHA",
+      "items": [
+        {
+          "id": 7243983,
+          "name": "Quiabada",
+          "description": "Quiabada temperadinha com sabor caseiro e você ainda tem a liberdade de escolher 2 acompanhamentos",
+          "price": 25.5
+        },
+        {
+          "id": 7243981,
+          "name": "Tirinhas de carne com molho rosa",
+          "description": "Ainda tem a liberdade de escolher 2 acompanhamentos. Totalizando o prato com aproximadamente 350 gramas",
+          "price": 26
+        },
+        {
+          "id": 7243986,
+          "name": "Carne de Panela",
+          "description": "Você ainda tem a liberdade de escolher 2 acompanhamentos. Totalizando o prato com aproximadamente 350 gramas",
+          "price": 25.5
+        },
+        {
+          "id": 7243985,
+          "name": "Bife Acebolado",
+          "description": "Carne Bovina, cebola, alho, óleo de soja, sal, pimenta cuminho. Típico prato brasileiro, gostoso e nutritivo, não tem como resistir e tem aqueles que amam colocar farinha para da um toque final",
+          "price": 25.5
+        },
+        {
+          "id": 7243984,
+          "name": "Yakisoba Carne",
+          "description": "Filé de carne em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
+          "price": 28
+        }
+      ]
+    },
+    {
+      "id": 1174798,
+      "name": "PEIXE",
+      "items": [
+        {
+          "id": 7244212,
+          "name": "Filé de Tilápia Grelhado",
+          "description": "Filé de tilápia temperado com ervas, empanado com ovos, faria de trigo, frito em óleo quente. Você pode escolher até 2 acompanhamentos",
+          "price": 28.99
+        },
+        {
+          "id": 7244211,
+          "name": "Filé de Tilápia Assada",
+          "description": "Filé de Tilapia temperado com ervas na medida, assado com sua própria gordura. Aproximadamente 350 gramas com 2 acompanhamentos que vocês escolhem",
+          "price": 28.99
+        },
+        {
+          "id": 7246313,
+          "name": "Salmão Desfiado",
+          "description": "Filé de Salmão temperado com ervas finas, assado com sua própia gordura, levimente Desfiado → com os acompanhamento totaliza aproximadamente 350 gramas de comida",
+          "price": 40
+        },
+        {
+          "id": 7244215,
+          "name": "Moqueca de Filé de Tilapia",
+          "description": "Feita com o filé de tilápia, cebola, Pimentão, tomate em cubos, azeite de dende, leite de coco e finalizando com cheiro verde",
+          "price": 29.9
+        },
+        {
+          "id": 7244214,
+          "name": "Salmão ao Molho",
+          "description": "Filé de Salmão assado, finalizando com delicioso molho a sua escolha (molho de limão siciliano, molho rosé ou molho de maracujá)→ com os acompanhamento totaliza aproximadamente 350 gramas de comida",
+          "price": 46.2
+        }
+      ]
+    },
+    {
+      "id": 1174838,
+      "name": "SUINO",
+      "items": [
+        {
+          "id": 7244466,
+          "name": "Estrogonofe de Filé Suino",
+          "description": "Nossa comida congelada, vem no total: 350 gramas de comida. Você pode escolher até 2 acompanhamentos",
+          "price": 23.99
+        },
+        {
+          "id": 7244469,
+          "name": "Lombo Suino ao Molho",
+          "description": "Nossa comida congelada, vem no total: 350 gramas de comida. Você pode escolher até 2 acompanhamentos",
+          "price": 26.19
+        }
+      ]
+    },
+    {
+      "id": 1174860,
+      "name": "VEGETARIANA",
+      "items": [
+        {
+          "id": 7244598,
+          "name": "Lasanha de Berinjela",
+          "description": "Nossa Lasanha é diferenciada, feita apenas com as lâminas da berinjela e queijo. São 2 camadas ao todo, ficando mais de 350 gramas na marmita. Usamos Molho de Tomate Rústico Artesanal em toda lasanha e finalizamos com Molho o Branco com 2 queijos",
+          "price": 23.99
+        },
+        {
+          "id": 7244596,
+          "name": "Quibe de Abóbora com Ricota",
+          "description": "Delicioso Quibe de Abóbora com Ricota e com 2 acompanhamentos escolhidos por vocês. O prato possui aproximadamente 350 gramas",
+          "price": 22.99
+        },
+        {
+          "id": 7244595,
+          "name": "Quibe com Ricota",
+          "description": "Delicioso Quibe com Ricota e com 2 acompanhamentos escolhidos por vocês. O prato possui aproximadamente 350 gramas",
+          "price": 21.99
+        },
+        {
+          "id": 7244599,
+          "name": "Torta de Ricota com Espinafre",
+          "description": "Nossa comida congelada, vem no total: 350 gramas; Você pode escolher até 2 acompanhamentos. Isso mesmo, nosso diferencial é que você pode escolher o que come",
+          "price": 24
+        },
+        {
+          "id": 7244597,
+          "name": "Rondelli de Abobora e Creme de Ricota e Espinafre",
+          "description": "Preparado com massa de pastel, recheado avec purê de abóbora assado com ervas finas e uma camada fina de pasta de ricota com Castanha do Pará tostada. Leva também Molho Artesanal de Tomate",
+          "price": 25.97
+        },
+        {
+          "id": 7244600,
+          "name": "Yakisoba Vegetariano",
+          "description": "Brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos frescos e cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado. O prato tem aproximadamente 350 gramas",
+          "price": 24.97
+        }
+      ]
+    },
+    {
+      "id": 1175044,
+      "name": "VEGANOS",
+      "items": [
+        {
+          "id": 7245725,
+          "name": "Hamburguer Vegano",
+          "description": "Nossa comida congelada, vem no total: 350 gramas; Você pode escolher até 2 acompanhamentos. Isso mesmo, nosso diferencial é que você pode escolher o que come",
+          "price": 22.99
+        },
+        {
+          "id": 7245728,
+          "name": "Almôndegas ao Molho Sugo",
+          "description": "Almondegas a sua escolha feita Artesanalmente cobertas com um delicioso Molho Artesanal. Você pode escolher até 2 acompanhamentos",
+          "price": 23.57
+        },
+        {
+          "id": 7245723,
+          "name": "Fusilli ao Molho de Tomate, Berinjela, Abobrinha e Almôndega",
+          "description": "Macarrão Fusilli com Molho de Tomate Artesanal, Berinjela, Abobrinha e Almôndegas a sua escolha. O prato possui em média 350 gramas",
+          "price": 23.97
+        },
+        {
+          "id": 7245727,
+          "name": "Moqueca de Palmito e Banana da Terra",
+          "description": "Nossa Moqueca é feita com Palmito, banana da terra, pimentão, cebola, tomate, azeite de dende, leite de coco, finalizando com cheiro verde",
+          "price": 25.99
+        },
+        {
+          "id": 7245726,
+          "name": "Empadão Vegano",
+          "description": "MASSA: farinha de aveia, trigo e amido de milho - RECHEIO: palmito, cenoura, vargem, catupiry de inhame OU Soja com catupiry de inhame",
+          "price": 25.9
+        },
+        {
+          "id": 7246505,
+          "name": "Estrogonofe de Grão-de-Bico",
+          "description": "Delicioso Estrogonofe de Grão de Bico VEGANA, minuciosamente equilibrada com molho artesanal de tomate e creme de leite de aveia. Acompanhada com 2 (duas) guarnições à sua escolha. Totalizando o prato com aproximadamente 350 gramas",
+          "price": 25
+        }
+      ]
+    }
   ],
   "lastUpdated": "2025-09-04T18:24:00.704Z"
 }
