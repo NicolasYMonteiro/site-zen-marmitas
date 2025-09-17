@@ -53,8 +53,8 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        client_id: process.env.GITHUB_CLIENT_ID,
-        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        client_id: process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2',
+        client_secret: process.env.GITHUB_CLIENT_SECRET || '5220babcf2487c7ab9b5021c27c60c0ea7152866',
         code: code,
       }),
     });

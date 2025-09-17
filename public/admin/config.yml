@@ -2,7 +2,7 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
-  base_url: http://localhost:3000
+  base_url: https://marmitasvhc.vercel.app
   auth_endpoint: api/auth   
 
 # Configuração de autenticação
@@ -13,8 +13,8 @@ media_folder: "public/images/menu"
 public_folder: "/images/menu"
 
 # Configurações do site
-site_url: http://localhost:3000
-display_url: http://localhost:3000
+site_url: https://marmitasvhc.vercel.app
+display_url: https://marmitasvhc.vercel.app
 
 # Configuração de coleções
 collections:
