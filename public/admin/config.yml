@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: nicol/site-zen-marmitas # Substitua pelo seu repositório
+  repo: NicolasYMonteiro/site-zen-marmitas # Substitua pelo seu repositório
   branch: main
 
 # Configuração de autenticação
