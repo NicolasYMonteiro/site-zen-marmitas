@@ -8,7 +8,7 @@ const https = require('https');
 const http = require('http');
 
 const SITE_URL = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
-const LOCAL_URL = 'http://localhost:3000';
+const LOCAL_URL = 'http://localhost:3002';
 
 async function testAuthEndpoint(url) {
   return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ async function testAuthEndpoint(url) {
       console.log(`📊 Status: ${res.statusCode}`);
       console.log(`📍 Location: ${res.headers.location || 'N/A'}`);
       
-      if (res.statusCode === 302 && res.headers.location) {
+      if ((res.statusCode === 302 || res.statusCode === 307) && res.headers.location) {
         const location = res.headers.location;
         if (location.includes('github.com/login/oauth/authorize')) {
           console.log('✅ Redirecionamento para GitHub OK');

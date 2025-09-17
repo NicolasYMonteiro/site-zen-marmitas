@@ -8,12 +8,23 @@ export async function GET(request: NextRequest) {
   
   if (provider === 'github') {
     const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2'; // Fallback para teste
-    const siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
+    
+    // Detectar URL baseada no ambiente
+    const host = request.headers.get('host') || '';
+    const protocol = request.headers.get('x-forwarded-proto') || 'http';
+    const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
+    
+    let siteUrl = process.env.SITE_URL;
+    if (!siteUrl || isLocal) {
+      siteUrl = `${protocol}://${host}`;
+    }
     
     console.log('Configuração:', { 
       hasClientId: !!process.env.GITHUB_CLIENT_ID, 
       clientId: clientId.substring(0, 10) + '...',
-      siteUrl 
+      siteUrl,
+      host,
+      isLocal
     });
     
     console.log('GitHub auth config:', { clientId, siteUrl });
