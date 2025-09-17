@@ -14,8 +14,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Client ID não configurado' }, { status: 500 });
     }
     
-    // Para desenvolvimento local, sempre usar localhost:3000
-    const siteUrl = 'http://localhost:3000';
+    // Usar a URL do site configurada na variável de ambiente
+    const siteUrl = process.env.SITE_URL || 'http://localhost:3000';
     
     console.log('GitHub auth config:', { 
       clientId: clientId.substring(0, 10) + '...',
