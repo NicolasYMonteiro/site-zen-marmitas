@@ -104,6 +104,14 @@ collections:
    - `GITHUB_BRANCH`
    - `SITE_URL`
 
+### 4.1. Configurações Importantes para Next.js 15
+
+O projeto foi atualizado para funcionar corretamente com Next.js 15:
+
+- **Endpoint de autenticação**: Usa a nova sintaxe de API Routes (`GET` e `POST`)
+- **Middleware**: Configurado para permitir requisições do Decap CMS
+- **Dependências**: Atualizadas para versões compatíveis
+
 ### 5. Fazer Deploy
 
 1. **Commit e push** das alterações
