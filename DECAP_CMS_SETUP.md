@@ -108,9 +108,9 @@ collections:
 
 O projeto foi atualizado para funcionar corretamente com Next.js 15:
 
-- **Endpoint de autenticação**: Usa a nova sintaxe de API Routes (`GET` e `POST`)
+- **Endpoint de autenticação**: Implementado como `/api/auth/route.ts` com redirecionamento direto para GitHub OAuth
 - **Middleware**: Configurado para permitir requisições do Decap CMS
-- **Dependências**: Atualizadas para versões compatíveis
+- **Configuração corrigida**: `auth_endpoint` configurado como caminho relativo (`api/auth`) para evitar duplicação de URL
 
 ### 5. Fazer Deploy
 
