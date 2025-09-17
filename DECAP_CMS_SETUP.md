@@ -178,6 +178,23 @@ public/
 
 ## 🚨 Solução de Problemas
 
+### Erro 404 no Endpoint /api/auth
+
+Se você receber um erro 404 ao tentar acessar `/api/auth`, siga estes passos:
+
+1. **Verifique se o endpoint está funcionando**:
+   - Acesse: `https://seu-site.vercel.app/api/debug`
+   - Deve retornar informações sobre as variáveis de ambiente
+
+2. **Teste o endpoint de autenticação**:
+   - Acesse: `https://seu-site.vercel.app/api/test-auth`
+   - Deve retornar uma mensagem de sucesso
+
+3. **Verifique as variáveis de ambiente na Vercel**:
+   - No painel da Vercel, vá em Settings > Environment Variables
+   - Confirme que `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET` estão definidas
+   - Faça redeploy após adicionar as variáveis
+
 ### Erro de Autenticação
 
 - Verifique se o Client ID e Secret estão corretos
