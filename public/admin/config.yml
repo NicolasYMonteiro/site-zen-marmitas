@@ -2,6 +2,8 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas # Substitua pelo seu repositório
   branch: main
+  base_url: https://mamitashvc.vercel.app   # seu domínio
+  auth_endpoint: /api/auth   
 
 # Configuração de autenticação
 publish_mode: editorial_workflow
