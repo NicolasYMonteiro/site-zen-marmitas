@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup-cms": "node scripts/setup-github-oauth.js"
+    "setup-cms": "node scripts/setup-github-oauth.js",
+    "test-auth": "node scripts/test-auth.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",

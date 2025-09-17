@@ -3,60 +3,85 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const provider = searchParams.get('provider');
-  const siteId = searchParams.get('site_id');
   
-  console.log('Auth request:', { provider, siteId, url: request.url });
+  console.log('Auth request:', { provider, url: request.url });
   
   if (provider === 'github') {
-    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2';
+    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2'; // Fallback para teste
+    const siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
     
-    // Detectar o domínio correto baseado no site_id ou usar o padrão
-    let siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
+    console.log('Configuração:', { 
+      hasClientId: !!process.env.GITHUB_CLIENT_ID, 
+      clientId: clientId.substring(0, 10) + '...',
+      siteUrl 
+    });
     
-    if (siteId) {
-      // Se o site_id contém "marmitasvhc", usar o domínio correto
-      if (siteId.includes('marmitasvhc')) {
-        siteUrl = 'https://marmitashvc.vercel.app';
-      }
-    }
-    
-    console.log('GitHub auth config:', { clientId, siteUrl, siteId });
+    console.log('GitHub auth config:', { clientId, siteUrl });
 
     // Construir URL de autorização do GitHub
     const githubAuthUrl = new URL('https://github.com/login/oauth/authorize');
     githubAuthUrl.searchParams.set('client_id', clientId);
-    githubAuthUrl.searchParams.set('redirect_uri', `${siteUrl}/admin/index.html`);
+    githubAuthUrl.searchParams.set('redirect_uri', `${siteUrl}/api/auth/callback`);
     githubAuthUrl.searchParams.set('scope', 'repo');
     githubAuthUrl.searchParams.set('state', 'decap-cms');
     
-    console.log('Redirecting to:', githubAuthUrl.toString());
-    
-    // Criar resposta de redirecionamento mais explícita
-    const response = NextResponse.redirect(githubAuthUrl.toString());
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    
-    return response;
+    console.log('Redirecting to GitHub:', githubAuthUrl.toString());
+    return NextResponse.redirect(githubAuthUrl.toString());
   }
 
-  return NextResponse.json({ error: 'Invalid provider' }, { status: 400 });
+  return NextResponse.json({ error: 'Provider inválido' }, { status: 400 });
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    const { code, state } = body;
     
-    // Aqui você implementaria a lógica para trocar o código de autorização por um token
-    // Por simplicidade, vou retornar um token mock
+    if (!code || state !== 'decap-cms') {
+      return NextResponse.json({ error: 'Parâmetros inválidos' }, { status: 400 });
+    }
+    
+    // Trocar o código por um token de acesso
+    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        code: code,
+      }),
+    });
+    
+    const tokenData = await tokenResponse.json();
+    
+    if (tokenData.error) {
+      console.error('Token exchange error:', tokenData);
+      return NextResponse.json({ error: 'Falha na troca de token' }, { status: 400 });
+    }
+    
+    // Buscar informações do usuário
+    const userResponse = await fetch('https://api.github.com/user', {
+      headers: {
+        'Authorization': `token ${tokenData.access_token}`,
+        'Accept': 'application/json',
+      },
+    });
+    
+    const userData = await userResponse.json();
+    
     return NextResponse.json({ 
-      token: 'mock-token',
+      token: tokenData.access_token,
       user: {
-        name: 'User',
-        email: 'user@example.com'
+        name: userData.name || userData.login,
+        email: userData.email,
+        login: userData.login
       }
     });
   } catch (error) {
-    return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
+    console.error('POST auth error:', error);
+    return NextResponse.json({ error: 'Erro interno do servidor' }, { status: 500 });
   }
 }
