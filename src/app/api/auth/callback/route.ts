@@ -10,12 +10,12 @@ export async function GET(request: NextRequest) {
   
   if (error) {
     console.error('GitHub auth error:', error);
-    return NextResponse.redirect('/admin/?error=' + encodeURIComponent(error));
+    return NextResponse.redirect('http://localhost:3000/admin/?error=' + encodeURIComponent(error));
   }
   
   if (!code || state !== 'decap-cms') {
     console.error('Invalid callback parameters');
-    return NextResponse.redirect('/admin/?error=invalid_callback');
+    return NextResponse.redirect('http://localhost:3000/admin/?error=invalid_callback');
   }
   
   try {
@@ -37,19 +37,18 @@ export async function GET(request: NextRequest) {
     
     if (tokenData.error) {
       console.error('Token exchange error:', tokenData);
-      return NextResponse.redirect('/admin/?error=token_exchange_failed');
+      return NextResponse.redirect('http://localhost:3000/admin/?error=token_exchange_failed');
     }
     
     console.log('Token exchange successful');
     
     // Redirecionar de volta para o admin com o token
-    const adminUrl = new URL('/admin/', request.url);
-    adminUrl.searchParams.set('access_token', tokenData.access_token);
+    const adminUrl = 'http://localhost:3000/admin/?access_token=' + encodeURIComponent(tokenData.access_token);
     
-    return NextResponse.redirect(adminUrl.toString());
+    return NextResponse.redirect(adminUrl);
     
   } catch (error) {
     console.error('Callback error:', error);
-    return NextResponse.redirect('/admin/?error=callback_failed');
+    return NextResponse.redirect('http://localhost:3000/admin/?error=callback_failed');
   }
 }

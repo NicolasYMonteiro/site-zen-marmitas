@@ -7,27 +7,20 @@ export async function GET(request: NextRequest) {
   console.log('Auth request:', { provider, url: request.url });
   
   if (provider === 'github') {
-    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2'; // Fallback para teste
+    const clientId = process.env.GITHUB_CLIENT_ID;
     
-    // Detectar URL baseada no ambiente
-    const host = request.headers.get('host') || '';
-    const protocol = request.headers.get('x-forwarded-proto') || 'http';
-    const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
-    
-    let siteUrl = process.env.SITE_URL;
-    if (!siteUrl || isLocal) {
-      siteUrl = `${protocol}://${host}`;
+    if (!clientId) {
+      console.error('GITHUB_CLIENT_ID não configurado');
+      return NextResponse.json({ error: 'Client ID não configurado' }, { status: 500 });
     }
     
-    console.log('Configuração:', { 
-      hasClientId: !!process.env.GITHUB_CLIENT_ID, 
-      clientId: clientId.substring(0, 10) + '...',
-      siteUrl,
-      host,
-      isLocal
-    });
+    // Para desenvolvimento local, sempre usar localhost:3000
+    const siteUrl = 'http://localhost:3000';
     
-    console.log('GitHub auth config:', { clientId, siteUrl });
+    console.log('GitHub auth config:', { 
+      clientId: clientId.substring(0, 10) + '...',
+      siteUrl 
+    });
 
     // Construir URL de autorização do GitHub
     const githubAuthUrl = new URL('https://github.com/login/oauth/authorize');
