@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   console.log('Auth request:', { provider, url: request.url });
   
   if (provider === 'github') {
-    const clientId = process.env.GITHUB_CLIENT_ID;
+    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2';
     
     if (!clientId) {
       console.error('GITHUB_CLIENT_ID não configurado');
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     }
     
     // Usar a URL do site configurada na variável de ambiente
-    const siteUrl = process.env.SITE_URL || 'http://localhost:3000';
+    const siteUrl = process.env.SITE_URL || 'https://marmitasvhc.vercel.app';
     
     console.log('GitHub auth config:', { 
       clientId: clientId.substring(0, 10) + '...',
