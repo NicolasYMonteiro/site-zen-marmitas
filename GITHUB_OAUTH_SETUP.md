@@ -5,8 +5,8 @@
 1. Acesse: https://github.com/settings/applications/new
 2. Preencha os campos:
    - **Application name**: `Zen Marmitas CMS`
-   - **Homepage URL**: `https://your-site.vercel.app` (substitua pelo seu domínio)
-   - **Authorization callback URL**: `https://your-site.vercel.app/admin/index.html`
+   - **Homepage URL**: `https://marmitashvc.vercel.app`
+   - **Authorization callback URL**: `https://marmitashvc.vercel.app/admin/index.html`
 
 3. Clique em "Register application"
 4. Anote o **Client ID** e **Client Secret**
@@ -21,7 +21,7 @@ GITHUB_CLIENT_SECRET=seu_client_secret_aqui
 GITHUB_REPO_OWNER=seu_usuario_github
 GITHUB_REPO_NAME=site-zen-marmitas
 GITHUB_BRANCH=main
-SITE_URL=https://seu-site.vercel.app
+SITE_URL=https://marmitashvc.vercel.app
 ```
 
 ## Passo 3: Atualizar config.yml
@@ -33,10 +33,11 @@ backend:
   name: github
   repo: seu_usuario/site-zen-marmitas
   branch: main
-  site_domain: seu-site.vercel.app
+  base_url: https://marmitashvc.vercel.app
+  auth_endpoint: api/auth
 
-site_url: https://seu-site.vercel.app
-display_url: https://seu-site.vercel.app
+site_url: https://marmitashvc.vercel.app
+display_url: https://marmitashvc.vercel.app
 ```
 
 ## Passo 4: Configurar Vercel

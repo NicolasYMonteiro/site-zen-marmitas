@@ -3,14 +3,24 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const provider = searchParams.get('provider');
+  const siteId = searchParams.get('site_id');
   
-  console.log('Auth request:', { provider, url: request.url });
+  console.log('Auth request:', { provider, siteId, url: request.url });
   
   if (provider === 'github') {
     const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2';
-    const siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
     
-    console.log('GitHub auth config:', { clientId, siteUrl });
+    // Detectar o domínio correto baseado no site_id ou usar o padrão
+    let siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
+    
+    if (siteId) {
+      // Se o site_id contém "marmitasvhc", usar o domínio correto
+      if (siteId.includes('marmitasvhc')) {
+        siteUrl = 'https://marmitashvc.vercel.app';
+      }
+    }
+    
+    console.log('GitHub auth config:', { clientId, siteUrl, siteId });
 
     // Construir URL de autorização do GitHub
     const githubAuthUrl = new URL('https://github.com/login/oauth/authorize');
