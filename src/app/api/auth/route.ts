@@ -30,7 +30,14 @@ export async function GET(request: NextRequest) {
     githubAuthUrl.searchParams.set('state', 'decap-cms');
     
     console.log('Redirecting to:', githubAuthUrl.toString());
-    return NextResponse.redirect(githubAuthUrl.toString());
+    
+    // Criar resposta de redirecionamento mais explícita
+    const response = NextResponse.redirect(githubAuthUrl.toString());
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    
+    return response;
   }
 
   return NextResponse.json({ error: 'Invalid provider' }, { status: 400 });
