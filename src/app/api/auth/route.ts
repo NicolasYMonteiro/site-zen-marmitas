@@ -7,8 +7,8 @@ export async function GET(request: NextRequest) {
   console.log('Auth request:', { provider, url: request.url });
   
   if (provider === 'github') {
-    const clientId = process.env.GITHUB_CLIENT_ID || 'test_client_id';
-    const siteUrl = process.env.SITE_URL || 'http://localhost:3000';
+    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2';
+    const siteUrl = process.env.SITE_URL || 'https://marmitashvc.vercel.app';
     
     console.log('GitHub auth config:', { clientId, siteUrl });
 
