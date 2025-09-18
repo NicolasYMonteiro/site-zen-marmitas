@@ -44,7 +44,7 @@ export default function Footer() {
                 <a href="whatsapp://send?phone=5571981635808" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
                   <FaWhatsapp className=" w-5 h-5 text-[#25D366]" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.facebook.com/profile.php?id=100063951678207" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
                   <FaFacebook className=" w-5 h-5 text-[#1877F2]" />
                 </a>
               </div>
