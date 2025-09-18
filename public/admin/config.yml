@@ -2,11 +2,6 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
-  base_url: https://marmitasvhc.vercel.app
-  auth_endpoint: api/auth   
-
-# Configuração de autenticação
-publish_mode: editorial_workflow
 
 # Configuração de mídia
 media_folder: "public/images/menu"
@@ -15,10 +10,17 @@ public_folder: "/images/menu"
 # Configurações do site
 site_url: https://marmitasvhc.vercel.app
 display_url: https://marmitasvhc.vercel.app
+locale: "pt"
+
+# Configurações de comportamento
+load_config_file: false
+show_preview_links: false
+
+# Configuração de fluxo editorial (APENAS UMA VEZ)
+publish_mode: editorial_workflow
 
 # Configuração de coleções
 collections:
-  # Coleção para o cardápio completo
   - name: "menu"
     label: "Cardápio Completo"
     files:
@@ -30,27 +32,35 @@ collections:
             name: "categories"
             widget: "list"
             fields:
-              - {label: "ID", name: "id", widget: "number", value_type: "int"}
-              - {label: "Nome", name: "name", widget: "string"}
+              - { label: "ID", name: "id", widget: "number", value_type: "int" }
+              - { label: "Nome", name: "name", widget: "string" }
               - label: "Itens"
                 name: "items"
                 widget: "list"
                 fields:
-                  - {label: "ID", name: "id", widget: "number", value_type: "int"}
-                  - {label: "Nome", name: "name", widget: "string"}
-                  - {label: "Descrição", name: "description", widget: "text"}
-                  - {label: "Preço", name: "price", widget: "number", value_type: "float", step: 0.01}
-                  - {label: "Imagem", name: "image", widget: "image", required: false}
-                  - {label: "Disponível", name: "available", widget: "boolean", default: true}
-                  - {label: "Calorias", name: "calories", widget: "number", value_type: "int", required: false}
-                  - {label: "Proteína", name: "protein", widget: "string", required: false}
-                  - {label: "É Combo", name: "isCombo", widget: "boolean", default: false}
-                  - {label: "Máximo de Seleções", name: "maxSelections", widget: "number", value_type: "int", required: false}
+                  - { label: "ID", name: "id", widget: "number", value_type: "int" }
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - { label: "Preço", name: "price", widget: "number", value_type: "float", step: 0.01 }
+                  - { label: "Imagem", name: "image", widget: "image", required: false }
+                  - label: "Disponível"
+                    name: "available"
+                    widget: "boolean"
+                    required: false
+                    hint: "Deixe vazio para manter o valor atual"
+                  - { label: "Calorias", name: "calories", widget: "number", value_type: "int", required: false }
+                  - { label: "Proteína", name: "protein", widget: "string", required: false }
+                  - label: "É Combo"
+                    name: "isCombo"
+                    widget: "boolean"
+                    required: false
+                    hint: "Deixe vazio para manter o valor atual"
+                  - { label: "Máximo de Seleções", name: "maxSelections", widget: "number", value_type: "int", required: false }
                   - label: "Sub-itens (para combos)"
                     name: "subItems"
                     widget: "list"
                     required: false
                     fields:
-                      - {label: "ID", name: "id", widget: "string"}
-                      - {label: "Nome", name: "name", widget: "string"}
-                      - {label: "Descrição", name: "description", widget: "text"}
+                      - { label: "ID", name: "id", widget: "string" }
+                      - { label: "Nome", name: "name", widget: "string" }
+                      - { label: "Descrição", name: "description", widget: "text" }
