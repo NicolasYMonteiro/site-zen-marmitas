@@ -4,7 +4,6 @@ backend:
   branch: main
   base_url: https://marmitasvhc.vercel.app   # seu domínio do Vercel
   auth_endpoint: api/auth/callback    
-  app_id: Ov23liljzYNwHQFsT9p2
 
 # Configuração de mídia
 media_folder: "public/images/menu"

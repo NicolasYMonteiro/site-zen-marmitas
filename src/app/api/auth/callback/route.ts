@@ -14,11 +14,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(`${siteUrl}/admin/?error=` + encodeURIComponent(error));
   }
   
-  if (!code || state !== 'decap-cms') {
-    console.error('Invalid callback parameters');
-    const siteUrl = process.env.SITE_URL || 'https://marmitasvhc.vercel.app';
-    return NextResponse.redirect(`${siteUrl}/admin/?error=invalid_callback`);
-  }
+  if (!code) {
+  console.error('Invalid callback parameters');
+  const siteUrl = process.env.SITE_URL || 'https://marmitasvhc.vercel.app';
+  return NextResponse.redirect(`${siteUrl}/admin/?error=invalid_callback`);
+}
+
   
   try {
     // Trocar o código por um token de acesso
