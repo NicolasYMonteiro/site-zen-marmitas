@@ -2,8 +2,6 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
-  base_url: https://marmitasvhc.vercel.app   # seu domínio do Vercel
-  auth_endpoint: api/auth/callback    
 
 # Configuração de mídia
 media_folder: "public/images/menu"
@@ -14,9 +12,6 @@ site_url: https://marmitasvhc.vercel.app
 display_url: https://marmitasvhc.vercel.app
 locale: "pt"
 
-# Configurações de comportamento
-load_config_file: false
-show_preview_links: false
 
 # Configuração de fluxo editorial (APENAS UMA VEZ)
 publish_mode: simple
