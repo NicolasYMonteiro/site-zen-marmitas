@@ -133,7 +133,7 @@
           "name": "COMBO FIT - 14 REFEIÇÕES",
           "description": "14 Refeições Congeladas Fit com 300 à 400 gramas cada",
           "price": 349.86,
-          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7247001/picture/medium/250819011334",
+          "image": "/images/menu/design-sem-nome-3-.png",
           "isCombo": true,
           "maxSelections": 14,
           "subItems": [
@@ -195,40 +195,42 @@
           "name": "Filé de Frango Grelhado",
           "description": "Delicioso Filé de Frango Grelhado com 2 acompanhamentos a sua escolha. Totalizando o prato com aproximadamente 350 gramas",
           "price": 25.7,
-          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249784/picture/medium/250818234844"
+          "image": "/images/menu/design-sem-nome-4-.png"
         },
         {
           "id": 7243789,
           "name": "Filé de Frango Grelhado ao Molho",
           "description": "Delicioso Filé de Frango com molho a sua escolha e ainda a liberdade de escolher 2 acompanhamentos",
           "price": 26.9,
-          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249927/picture/medium/250818234905"
+          "image": "/images/menu/design-sem-nome-5-.png"
         },
         {
           "id": 7243210,
           "name": "Frango à Parmegiana",
           "description": "350 gramas de Filé de Frango, temperado na medida, uma camada de molho de tomate artesanal, finalizando com queijo muçarela e orégano. E com 2 acompanhamentos a sua escolha",
           "price": 26.25,
-          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249348/picture/medium/250818234923"
+          "image": "/images/menu/design-sem-nome-6-.png"
         },
         {
           "id": 7243437,
           "name": "Frango Cordon Bleu",
           "description": "Crocante por fora, cremoso por dentro!!! Queijo, presunto envolvidos no filé de frango, empanado com ovo, farinha de trigo, farinha de rosca e temperado na medida e para finalizar uma camada gênero de molho",
           "price": 28,
-          "image": "https://www.goomer.app/webmenu/zen-comidas-natural/product/7249574/picture/medium/250818234958"
+          "image": "/images/menu/design-sem-nome-7-.png"
         },
         {
           "id": 7243908,
           "name": "Lasanha de Frango",
           "description": "Camadas de molho de tomate artesanal, massa, frango cozido desfiado, queijo muçarela, presunto e finalizando com uma generosa camada de molho branco",
-          "price": 26.7
+          "price": 26.7,
+          "image": "/images/menu/design-sem-nome-8-.png"
         },
         {
           "id": 7243627,
           "name": "Yakisoba com Frango",
           "description": "Filé de Frango em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
-          "price": 26
+          "price": 26,
+          "image": "/images/menu/design-sem-nome-9-.png"
         }
       ]
     },
