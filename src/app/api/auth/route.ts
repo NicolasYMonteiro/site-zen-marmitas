@@ -1,39 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const provider = searchParams.get('provider');
-  
-  console.log('Auth request:', { provider, url: request.url });
-  
-  if (provider === 'github') {
-    const clientId = process.env.GITHUB_CLIENT_ID || 'Ov23liljzYNwHQFsT9p2';
-    
-    if (!clientId) {
-      console.error('GITHUB_CLIENT_ID não configurado');
-      return NextResponse.json({ error: 'Client ID não configurado' }, { status: 500 });
-    }
-    
-    // Usar a URL do site configurada na variável de ambiente
-    const siteUrl = process.env.SITE_URL || 'https://marmitasvhc.vercel.app';
-    
-    console.log('GitHub auth config:', { 
-      clientId: clientId.substring(0, 10) + '...',
-      siteUrl 
-    });
+export async function GET() {
+  const clientId = process.env.GITHUB_CLIENT_ID!;
+  const siteUrl = process.env.SITE_URL || 'https://marmitasvhc.vercel.app';
 
-    // Construir URL de autorização do GitHub
-    const githubAuthUrl = new URL('https://github.com/login/oauth/authorize');
-    githubAuthUrl.searchParams.set('client_id', clientId);
-    githubAuthUrl.searchParams.set('redirect_uri', `${siteUrl}/api/auth/callback`);
-    githubAuthUrl.searchParams.set('scope', 'repo');
-    githubAuthUrl.searchParams.set('state', 'decap-cms');
-    
-    console.log('Redirecting to GitHub:', githubAuthUrl.toString());
-    return NextResponse.redirect(githubAuthUrl.toString());
-  }
+  const githubAuthUrl = new URL('https://github.com/login/oauth/authorize');
+  githubAuthUrl.searchParams.set('client_id', clientId);
+  githubAuthUrl.searchParams.set('redirect_uri', `${siteUrl}/api/auth/callback`);
+  githubAuthUrl.searchParams.set('scope', 'repo');
+  githubAuthUrl.searchParams.set('state', 'decap-cms');
 
-  return NextResponse.json({ error: 'Provider inválido' }, { status: 400 });
+  return NextResponse.redirect(githubAuthUrl.toString());
 }
 
 export async function POST(request: NextRequest) {
