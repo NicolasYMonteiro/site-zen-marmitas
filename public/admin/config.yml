@@ -3,7 +3,7 @@ backend:
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
   base_url: https://marmitasvhc.vercel.app/api
-  auth_endpoint: ""
+  auth_endpoint: callback
 
 # Configuração de mídia
 media_folder: "public/images/menu"
