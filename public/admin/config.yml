@@ -10,11 +10,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "menu"
     label: "Cardápio Completo"
-    label: "Menu"
     files:
-      - label: "Cardápio"
-        name: "menu"
-        file: "public/data/menu.json"
       - file: "public/data/menu.json"
         label: "Menu JSON"
         name: "menujson"
