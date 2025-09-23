@@ -1,12 +1,9 @@
 {
   "rewrites": [
-    { "source": "/admin/config.yml", "destination": "/admin/config.yml" },
-    { "source": "/admin/config.yml*", "destination": "/admin/config.yml" },
-      { "source": "/admin/(.*\\.js)", "destination": "/admin/$1" },
-      { "source": "/admin/(.*\\.css)", "destination": "/admin/$1" },
-      { "source": "/admin/(.*\\.png)", "destination": "/admin/$1" },
-      { "source": "/admin/(.*\\.html)", "destination": "/admin/$1" },
-      { "source": "/admin/(.*)", "destination": "/admin/index.html" }
+    {
+      "source": "/admin/(.*)",
+      "destination": "/admin/index.html"
+    }
   ],
   "headers": [
     {
