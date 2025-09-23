@@ -6,11 +6,17 @@ const clientSecret = process.env.GITHUB_CLIENT_SECRET;
 const redirectUri = process.env.GITHUB_REDIRECT_URI || '';
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
+  const { searchParams, origin } = new URL(req.url);
   const code = searchParams.get('code');
 
   if (!code) {
-    return NextResponse.json({ error: 'Missing code' }, { status: 400 });
+    // Inicia o fluxo OAuth redirecionando para o GitHub
+    const githubAuthUrl =
+      `https://github.com/login/oauth/authorize?` +
+      `client_id=${clientId}` +
+      `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+      `&scope=repo`;
+    return NextResponse.redirect(githubAuthUrl, 302);
   }
 
   // Troca o code pelo access_token
