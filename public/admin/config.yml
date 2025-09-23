@@ -2,6 +2,8 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
+  base_url: /api/auth
+  auth_endpoint: github
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
