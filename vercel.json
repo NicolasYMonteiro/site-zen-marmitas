@@ -1,7 +1,22 @@
 {
-  "rewrites": [
+    "rewrites": [
     {
-      "source": "/admin/(.*)",
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/html"
+        }
+      ],
       "destination": "/admin/index.html"
     }
   ],
