@@ -2,6 +2,8 @@ backend:
   name: github
   repo: NicolasYMonteiro/site-zen-marmitas
   branch: main
+  base_url: https://marmitasvhc.vercel.app/api/auth
+  auth_endpoint: auth
 
 # Configuração de mídia
 media_folder: "public/images/menu"
