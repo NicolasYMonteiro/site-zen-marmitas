@@ -1,22 +1,11 @@
 {
     "rewrites": [
     {
-      "source": "/admin",
-      "destination": "/admin/index.html"
+      "source": "/admin/config.yml",
+      "destination": "/admin/config.yml"
     },
     {
-      "source": "/admin/",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/admin/:match*",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": "text/html"
-        }
-      ],
+      "source": "/admin/:all*",
       "destination": "/admin/index.html"
     }
   ],
