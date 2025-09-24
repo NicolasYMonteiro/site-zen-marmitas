@@ -400,7 +400,8 @@
           "id": 7245728,
           "name": "Almôndegas ao Molho Sugo",
           "description": "Almondegas a sua escolha feita Artesanalmente cobertas com um delicioso Molho Artesanal. Você pode escolher até 2 acompanhamentos",
-          "price": 23.57
+          "price": 23.57,
+          "image": "/images/menu/250818235756.jpg"
         },
         {
           "id": 7245723,
