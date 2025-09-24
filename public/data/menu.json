@@ -271,7 +271,8 @@
           "id": 7243984,
           "name": "Yakisoba Carne",
           "description": "Filé de carne em tiras, ao ponto com brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado",
-          "price": 28
+          "price": 28,
+          "image": "/images/menu/Design sem nome (9).png"
         }
       ]
     },
