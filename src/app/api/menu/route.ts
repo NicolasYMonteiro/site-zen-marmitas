@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { fetchFileFromGithub, readGithubConfigFromEnv } from '@/src/lib/github';
+import { fetchFileFromGithub, readGithubConfigFromEnv } from '@/lib/github';
 
 const MENU_FILE_PATH = path.join(process.cwd(), 'public', 'data', 'menu.json');
 
