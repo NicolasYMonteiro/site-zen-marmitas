@@ -380,7 +380,8 @@
           "id": 7244600,
           "name": "Yakisoba Vegetariano",
           "description": "Brocolis, cenoura, cebola, pimentões, repolho branco e roxo. Todos frescos e cuidadosamente selecionados e temperado com nosso delicioso molho bem equilibrado. O prato tem aproximadamente 350 gramas",
-          "price": 24.97
+          "price": 24.97,
+          "image": "/images/menu/250818233303.jpg"
         }
       ]
     },
