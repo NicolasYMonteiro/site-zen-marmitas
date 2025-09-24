@@ -305,7 +305,8 @@
           "id": 7244215,
           "name": "Moqueca de Filé de Tilapia",
           "description": "Feita com o filé de tilápia, cebola, Pimentão, tomate em cubos, azeite de dende, leite de coco e finalizando com cheiro verde",
-          "price": 29.9
+          "price": 29.9,
+          "image": "/images/menu/250818235340.jpg"
         },
         {
           "id": 7244214,
