@@ -421,7 +421,8 @@
           "id": 7245726,
           "name": "Empadão Vegano",
           "description": "MASSA: farinha de aveia, trigo e amido de milho - RECHEIO: palmito, cenoura, vargem, catupiry de inhame OU Soja com catupiry de inhame",
-          "price": 25.9
+          "price": 25.9,
+          "image": "/images/menu/250818233647.jpg"
         },
         {
           "id": 7246505,
