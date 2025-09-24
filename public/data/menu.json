@@ -284,7 +284,8 @@
           "id": 7244212,
           "name": "Filé de Tilápia Grelhado",
           "description": "Filé de tilápia temperado com ervas, empanado com ovos, faria de trigo, frito em óleo quente. Você pode escolher até 2 acompanhamentos",
-          "price": 28.99
+          "price": 28.99,
+          "image": "/images/menu/250818235307.jpg"
         },
         {
           "id": 7244211,
