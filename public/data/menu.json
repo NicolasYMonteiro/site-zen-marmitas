@@ -345,7 +345,8 @@
           "id": 7244598,
           "name": "Lasanha de Berinjela",
           "description": "Nossa Lasanha é diferenciada, feita apenas com as lâminas da berinjela e queijo. São 2 camadas ao todo, ficando mais de 350 gramas na marmita. Usamos Molho de Tomate Rústico Artesanal em toda lasanha e finalizamos com Molho o Branco com 2 queijos",
-          "price": 23.99
+          "price": 23.99,
+          "image": "/images/menu/250818235546.jpg"
         },
         {
           "id": 7244596,
