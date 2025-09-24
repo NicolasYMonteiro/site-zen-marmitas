@@ -1,14 +1,15 @@
 {
   "rewrites": [
-    { "source": "/admin/config.yml", "destination": "/admin/config.yml" },
-    { "source": "/admin/{file}.js", "destination": "/admin/{file}.js" },
-    { "source": "/admin/{file}.css", "destination": "/admin/{file}.css" },
-    { "source": "/admin/{file}.png", "destination": "/admin/{file}.png" },
-    { "source": "/admin/{file}.svg", "destination": "/admin/{file}.svg" },
-    { "source": "/admin/{file}.ico", "destination": "/admin/{file}.ico" },
     { "source": "/admin/:all*", "destination": "/admin/index.html" }
   ],
   "headers": [
+    {
+      "source": "/admin/config.yml",
+      "headers": [
+        { "key": "Content-Type", "value": "text/yaml" },
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    },
     {
       "source": "/api/(.*)",
       "headers": [
