@@ -393,7 +393,8 @@
           "id": 7245725,
           "name": "Hamburguer Vegano",
           "description": "Nossa comida congelada, vem no total: 350 gramas; Você pode escolher até 2 acompanhamentos. Isso mesmo, nosso diferencial é que você pode escolher o que come",
-          "price": 22.99
+          "price": 22.99,
+          "image": "/images/menu/250818235733.jpg"
         },
         {
           "id": 7245728,
