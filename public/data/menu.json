@@ -257,7 +257,8 @@
           "id": 7243986,
           "name": "Carne de Panela",
           "description": "Você ainda tem a liberdade de escolher 2 acompanhamentos. Totalizando o prato com aproximadamente 350 gramas",
-          "price": 25.5
+          "price": 25.5,
+          "image": "/images/menu/Design sem nome (11).png"
         },
         {
           "id": 7243985,
