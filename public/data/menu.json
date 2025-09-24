@@ -291,7 +291,8 @@
           "id": 7244211,
           "name": "Filé de Tilápia Assada",
           "description": "Filé de Tilapia temperado com ervas na medida, assado com sua própria gordura. Aproximadamente 350 gramas com 2 acompanhamentos que vocês escolhem",
-          "price": 28.99
+          "price": 28.99,
+          "image": "/images/menu/250818235324.jpg"
         },
         {
           "id": 7246313,
