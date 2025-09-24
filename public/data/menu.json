@@ -264,7 +264,8 @@
           "id": 7243985,
           "name": "Bife Acebolado",
           "description": "Carne Bovina, cebola, alho, óleo de soja, sal, pimenta cuminho. Típico prato brasileiro, gostoso e nutritivo, não tem como resistir e tem aqueles que amam colocar farinha para da um toque final",
-          "price": 25.5
+          "price": 25.5,
+          "image": "/images/menu/Design sem nome (12).png"
         },
         {
           "id": 7243984,
