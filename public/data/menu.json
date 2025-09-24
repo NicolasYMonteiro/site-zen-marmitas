@@ -414,7 +414,8 @@
           "id": 7245727,
           "name": "Moqueca de Palmito e Banana da Terra",
           "description": "Nossa Moqueca é feita com Palmito, banana da terra, pimentão, cebola, tomate, azeite de dende, leite de coco, finalizando com cheiro verde",
-          "price": 25.99
+          "price": 25.99,
+          "image": "/images/menu/250818233608.jpg"
         },
         {
           "id": 7245726,
