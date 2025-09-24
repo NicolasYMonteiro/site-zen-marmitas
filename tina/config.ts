@@ -5,12 +5,12 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!, // do Tina Cloud
   token: process.env.TINA_TOKEN!, // do Tina Cloud
   build: {
-    outputFolder: "admin",
+    outputFolder: "tina",
     publicFolder: "public",
   },
   media: {
     tina: {
-      mediaRoot: "images/uploads",
+      mediaRoot: "images/menu",
       publicFolder: "public",
     },
   },

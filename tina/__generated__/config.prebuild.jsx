@@ -7,12 +7,12 @@ var config_default = defineConfig({
   token: process.env.TINA_TOKEN,
   // do Tina Cloud
   build: {
-    outputFolder: "admin",
+    outputFolder: "tina",
     publicFolder: "public"
   },
   media: {
     tina: {
-      mediaRoot: "images/uploads",
+      mediaRoot: "images/menu",
       publicFolder: "public"
     }
   },

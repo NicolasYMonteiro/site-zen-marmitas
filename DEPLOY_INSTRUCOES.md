@@ -65,3 +65,64 @@ curl -I https://marmitashvc.vercel.app/api/auth?provider=github
 2. Configurar variáveis de ambiente
 3. Configurar GitHub OAuth App
 4. Testar em produção
+
+---
+
+# ✨ Novo fluxo simples: editar menu.json direto no GitHub
+
+Esta aplicação agora possui um fluxo nativo para ler/escrever `public/data/menu.json` no repositório do GitHub, compatível com Vercel, sem Decap CMS.
+
+## 🔧 Rotas adicionadas
+
+- `GET /api/menu-github` → Carrega o `menu.json` do GitHub (se configurado) ou do filesystem local.
+- `PUT /api/menu-github` → Salva o `menu.json` no GitHub (ou localmente). Protegido por `Authorization: Bearer ADMIN_TOKEN`.
+
+## 🖥️ Tina CMS (UI amigável com upload de imagens)
+
+- Rodar local: `npm run dev` (isto já inicia o Tina junto do Next)
+- Editor visual: acesse `/tina` no seu site local ou em produção
+- Uploads: enviados para `public/images/menu` (URL relativa salva no JSON)
+
+## 🧩 Variáveis de ambiente (Vercel → Settings → Environment Variables)
+
+```env
+GITHUB_TOKEN=ghp_xxx_com_escopo_repo
+GITHUB_REPO=seu-usuario/seu-repo
+GITHUB_BRANCH=main
+ADMIN_TOKEN=uma-senha-forte-para-edicao
+NEXT_PUBLIC_TINA_CLIENT_ID=seu_client_id_do_tina_cloud
+TINA_TOKEN=seu_token_do_tina_cloud
+```
+
+Observações:
+- `GITHUB_TOKEN` precisa do escopo `repo` para commitar via Contents API.
+- Se não definir `GITHUB_*`, o app usa o arquivo local (útil para desenvolvimento).
+
+## ▶️ Como usar (Tina)
+
+1. Abra `/tina`.
+2. Entre na coleção “Cardápio Completo” → `menu.json`.
+3. Edite categorias/itens com formulários amigáveis; faça upload de imagens.
+4. Clique em “Save” para commitar no GitHub.
+
+## 🧪 Teste local
+
+Sem GitHub:
+```bash
+npm run dev
+# GET carrega de public/data/menu.json; PUT salva local (se ADMIN_TOKEN ausente, retorna 401)
+```
+
+Com GitHub:
+```bash
+set GITHUB_TOKEN=ghp_xxx
+set GITHUB_REPO=usuario/repo
+set GITHUB_BRANCH=main
+set ADMIN_TOKEN=senha
+npm run dev
+```
+
+## ❓ Perguntas comuns
+
+- “Preciso de OAuth GitHub?” → Não. Usamos token de máquina (`GITHUB_TOKEN`) + `ADMIN_TOKEN` simples para proteger escrita.
+- “Funciona na Vercel?” → Sim, rotas Serverless e variáveis de ambiente padrão da Vercel.
