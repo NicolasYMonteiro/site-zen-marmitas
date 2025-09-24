@@ -312,7 +312,8 @@
           "id": 7244214,
           "name": "Salmão ao Molho",
           "description": "Filé de Salmão assado, finalizando com delicioso molho a sua escolha (molho de limão siciliano, molho rosé ou molho de maracujá)→ com os acompanhamento totaliza aproximadamente 350 gramas de comida",
-          "price": 46.2
+          "price": 46.2,
+          "image": "/images/menu/250818235356.jpg"
         }
       ]
     },
