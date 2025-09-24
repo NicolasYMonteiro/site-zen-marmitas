@@ -1,0 +1,27 @@
+fragment MenuParts on Menu {
+  __typename
+  categories {
+    __typename
+    id
+    name
+    items {
+      __typename
+      id
+      name
+      description
+      price
+      image
+      available
+      calories
+      protein
+      isCombo
+      maxSelections
+      subItems {
+        __typename
+        id
+        name
+        description
+      }
+    }
+  }
+}
