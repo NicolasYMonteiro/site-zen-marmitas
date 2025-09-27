@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           {/* Título principal com gradiente zen */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 mt-14 leading-tight">
             <span className="bg-gradient-to-r from-[#e5d689] via-white to-[#e5d689] bg-clip-text text-transparent">
               Zen Marmitas
             </span>
