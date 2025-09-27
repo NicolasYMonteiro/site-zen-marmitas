@@ -6,7 +6,7 @@ export function generateWhatsAppMessage(
   customerInfo: CustomerInfo,
   orderNumber: string
 ): string {
-  const deliveryFee = 10.00;
+  const deliveryFee = 13.00;
   const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
   const total = subtotal + deliveryFee;
   
