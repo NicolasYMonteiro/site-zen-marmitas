@@ -89,7 +89,7 @@ export default function ComboCustomizationModal({
       <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#5d7b3b] to-[#7a9a4e] text-white p-6">
-          <h2 className="text-2xl font-bold mb-2">Personalizar Combo</h2>
+          <h2 className="text-2xl font-bold mb-2">Personalizar</h2>
           <p className="text-white/90">{comboName}</p>
           <div className="mt-3 flex items-center justify-between">
             <span className="text-sm">

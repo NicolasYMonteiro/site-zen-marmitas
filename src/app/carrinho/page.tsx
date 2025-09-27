@@ -47,9 +47,28 @@ export default function CarrinhoPage() {
     return !!(info.name && info.phone && info.address && info.neighborhood && info.city && info.zipCode);
   };
 
+  const validateMinimumSelection = (): boolean => {
+    const normalItems = items.filter(item => !item.isCombo);
+    const comboItems = items.filter(item => item.isCombo);
+    
+    // Se tem combo, pode finalizar com pelo menos 1 item
+    if (comboItems.length > 0) {
+      return true;
+    }
+    
+    // Se não tem combo, precisa de pelo menos 5 itens normais
+    const totalNormalQuantity = normalItems.reduce((total, item) => total + item.quantity, 0);
+    return totalNormalQuantity >= 5;
+  };
+
   const handleCheckout = () => {
     if (!validateCustomerInfo(customerInfo)) {
       toast.error('Por favor, preencha todos os campos obrigatórios');
+      return;
+    }
+
+    if (!validateMinimumSelection()) {
+      toast.error('Selecione pelo menos 5 itens normais ou 1 combo para finalizar o pedido');
       return;
     }
 
@@ -306,10 +325,31 @@ export default function CarrinhoPage() {
                     </div>
                   </div>
 
+                  {/* Informação sobre seleção mínima */}
+                  {!validateMinimumSelection() && (
+                    <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                      <div className="flex items-center">
+                        <div className="flex-shrink-0">
+                          <svg className="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <div className="ml-3">
+                          <p className="text-sm text-amber-800">
+                            {items.some(item => item.isCombo) 
+                              ? 'Adicione pelo menos 1 combo para finalizar o pedido'
+                              : `Selecione pelo menos 5 itens normais para finalizar o pedido (atual: ${items.filter(item => !item.isCombo).reduce((total, item) => total + item.quantity, 0)})`
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Botão de checkout */}
                   <button
                     onClick={handleCheckout}
-                    disabled={isProcessing || items.length === 0}
+                    disabled={isProcessing || items.length === 0 || !validateMinimumSelection()}
                     className="w-full py-4 px-6 bg-gradient-to-r from-[#5d7b3b] to-[#7a9a4e] text-white font-bold rounded-xl hover:from-[#4a622f] hover:to-[#5d7b3b] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isProcessing ? 'Processando...' : 'Enviar Pedido via WhatsApp'}
