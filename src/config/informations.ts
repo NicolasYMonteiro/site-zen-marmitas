@@ -14,8 +14,8 @@ export const INFORMATIONS = {
 
   // Dados de contato
   contact: {
-    phone: '(71) 99206-7664',
-    whatsapp: '5571992067664',
+    phone: '(71) 98163-5808',
+    whatsapp: '5571981635808',
     email: 'contato@zencomidasfit.com.br',
     instagram: '@zencomidasfit',
     instagramUrl: 'https://www.instagram.com/zencomidasfit',
