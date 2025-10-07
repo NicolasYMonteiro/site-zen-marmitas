@@ -16,11 +16,19 @@ fragment MenuParts on Menu {
       protein
       isCombo
       maxSelections
+      hasComplements
+      maxComplements
       subItems {
         __typename
         id
         name
         description
+      }
+      complements {
+        __typename
+        id
+        name
+        price
       }
     }
   }

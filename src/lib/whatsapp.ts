@@ -27,7 +27,11 @@ Pedido Zen Delivery #${orderNumber} - Zen Comidas
 
   // Adicionar itens do pedido
   items.forEach(item => {
-    const itemTotal = item.price * item.quantity;
+    const itemPrice = item.price * item.quantity;
+    const complementsPrice = item.selectedComplements?.reduce((total, complement) => 
+      total + (complement.price * item.quantity), 0) || 0;
+    const itemTotal = itemPrice + complementsPrice;
+    
     message += `${item.quantity}x ${item.name} R$ ${itemTotal.toFixed(2).replace('.', ',')}`;
     
     if (item.description) {
@@ -40,6 +44,17 @@ Pedido Zen Delivery #${orderNumber} - Zen Comidas
       item.comboSelections.forEach(selection => {
         if (selection.quantity > 0) {
           message += `\n   • ${selection.quantity}x ${selection.subItemName}`;
+        }
+      });
+    }
+    
+    // Se tem complementos selecionados, mostrar os complementos
+    if (!item.isCombo && item.selectedComplements && item.selectedComplements.length > 0) {
+      message += `\n   *Complementos:*`;
+      item.selectedComplements.forEach(complement => {
+        message += `\n   • ${complement.complementName}`;
+        if (complement.price > 0) {
+          message += ` (+R$ ${complement.price.toFixed(2).replace('.', ',')})`;
         }
       });
     }

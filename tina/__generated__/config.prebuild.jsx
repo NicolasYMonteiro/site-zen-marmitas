@@ -48,6 +48,8 @@ var config_default = defineConfig({
                   { type: "string", name: "protein", label: "Prote\xEDna" },
                   { type: "boolean", name: "isCombo", label: "\xC9 Combo" },
                   { type: "number", name: "maxSelections", label: "M\xE1ximo de Sele\xE7\xF5es" },
+                  { type: "boolean", name: "hasComplements", label: "Tem Complementos" },
+                  { type: "number", name: "maxComplements", label: "M\xE1ximo de Complementos" },
                   {
                     type: "object",
                     name: "subItems",
@@ -57,6 +59,17 @@ var config_default = defineConfig({
                       { type: "string", name: "id", label: "ID" },
                       { type: "string", name: "name", label: "Nome" },
                       { type: "string", name: "description", label: "Descri\xE7\xE3o", ui: { component: "textarea" } }
+                    ]
+                  },
+                  {
+                    type: "object",
+                    name: "complements",
+                    label: "Complementos Dispon\xEDveis",
+                    list: true,
+                    fields: [
+                      { type: "string", name: "id", label: "ID" },
+                      { type: "string", name: "name", label: "Nome" },
+                      { type: "number", name: "price", label: "Pre\xE7o Adicional" }
                     ]
                   }
                 ]

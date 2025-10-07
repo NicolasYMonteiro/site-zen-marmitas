@@ -93,6 +93,12 @@ type MenuCategoriesItemsSubItems {
   description: String
 }
 
+type MenuCategoriesItemsComplements {
+  id: String
+  name: String
+  price: Float
+}
+
 type MenuCategoriesItems {
   id: Float
   name: String
@@ -104,7 +110,10 @@ type MenuCategoriesItems {
   protein: String
   isCombo: Boolean
   maxSelections: Float
+  hasComplements: Boolean
+  maxComplements: Float
   subItems: [MenuCategoriesItemsSubItems]
+  complements: [MenuCategoriesItemsComplements]
 }
 
 type MenuCategories {
@@ -155,6 +164,12 @@ input MenuCategoriesItemsSubItemsFilter {
   description: StringFilter
 }
 
+input MenuCategoriesItemsComplementsFilter {
+  id: StringFilter
+  name: StringFilter
+  price: NumberFilter
+}
+
 input MenuCategoriesItemsFilter {
   id: NumberFilter
   name: StringFilter
@@ -166,7 +181,10 @@ input MenuCategoriesItemsFilter {
   protein: StringFilter
   isCombo: BooleanFilter
   maxSelections: NumberFilter
+  hasComplements: BooleanFilter
+  maxComplements: NumberFilter
   subItems: MenuCategoriesItemsSubItemsFilter
+  complements: MenuCategoriesItemsComplementsFilter
 }
 
 input MenuCategoriesFilter {
@@ -215,6 +233,12 @@ input MenuCategoriesItemsSubItemsMutation {
   description: String
 }
 
+input MenuCategoriesItemsComplementsMutation {
+  id: String
+  name: String
+  price: Float
+}
+
 input MenuCategoriesItemsMutation {
   id: Float
   name: String
@@ -226,7 +250,10 @@ input MenuCategoriesItemsMutation {
   protein: String
   isCombo: Boolean
   maxSelections: Float
+  hasComplements: Boolean
+  maxComplements: Float
   subItems: [MenuCategoriesItemsSubItemsMutation]
+  complements: [MenuCategoriesItemsComplementsMutation]
 }
 
 input MenuCategoriesMutation {

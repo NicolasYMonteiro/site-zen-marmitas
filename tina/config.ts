@@ -46,6 +46,8 @@ export default defineConfig({
                   { type: "string", name: "protein", label: "Proteína" },
                   { type: "boolean", name: "isCombo", label: "É Combo" },
                   { type: "number", name: "maxSelections", label: "Máximo de Seleções" },
+                  { type: "boolean", name: "hasComplements", label: "Tem Complementos" },
+                  { type: "number", name: "maxComplements", label: "Máximo de Complementos" },
                   {
                     type: "object",
                     name: "subItems",
@@ -55,6 +57,17 @@ export default defineConfig({
                       { type: "string", name: "id", label: "ID" },
                       { type: "string", name: "name", label: "Nome" },
                       { type: "string", name: "description", label: "Descrição", ui: { component: "textarea" } },
+                    ],
+                  },
+                  {
+                    type: "object",
+                    name: "complements",
+                    label: "Complementos Disponíveis",
+                    list: true,
+                    fields: [
+                      { type: "string", name: "id", label: "ID" },
+                      { type: "string", name: "name", label: "Nome" },
+                      { type: "number", name: "price", label: "Preço Adicional" },
                     ],
                   },
                 ],

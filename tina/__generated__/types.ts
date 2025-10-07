@@ -172,6 +172,13 @@ export type MenuCategoriesItemsSubItems = {
   description?: Maybe<Scalars['String']['output']>;
 };
 
+export type MenuCategoriesItemsComplements = {
+  __typename?: 'MenuCategoriesItemsComplements';
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  price?: Maybe<Scalars['Float']['output']>;
+};
+
 export type MenuCategoriesItems = {
   __typename?: 'MenuCategoriesItems';
   id?: Maybe<Scalars['Float']['output']>;
@@ -184,7 +191,10 @@ export type MenuCategoriesItems = {
   protein?: Maybe<Scalars['String']['output']>;
   isCombo?: Maybe<Scalars['Boolean']['output']>;
   maxSelections?: Maybe<Scalars['Float']['output']>;
+  hasComplements?: Maybe<Scalars['Boolean']['output']>;
+  maxComplements?: Maybe<Scalars['Float']['output']>;
   subItems?: Maybe<Array<Maybe<MenuCategoriesItemsSubItems>>>;
+  complements?: Maybe<Array<Maybe<MenuCategoriesItemsComplements>>>;
 };
 
 export type MenuCategories = {
@@ -237,6 +247,12 @@ export type MenuCategoriesItemsSubItemsFilter = {
   description?: InputMaybe<StringFilter>;
 };
 
+export type MenuCategoriesItemsComplementsFilter = {
+  id?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  price?: InputMaybe<NumberFilter>;
+};
+
 export type MenuCategoriesItemsFilter = {
   id?: InputMaybe<NumberFilter>;
   name?: InputMaybe<StringFilter>;
@@ -248,7 +264,10 @@ export type MenuCategoriesItemsFilter = {
   protein?: InputMaybe<StringFilter>;
   isCombo?: InputMaybe<BooleanFilter>;
   maxSelections?: InputMaybe<NumberFilter>;
+  hasComplements?: InputMaybe<BooleanFilter>;
+  maxComplements?: InputMaybe<NumberFilter>;
   subItems?: InputMaybe<MenuCategoriesItemsSubItemsFilter>;
+  complements?: InputMaybe<MenuCategoriesItemsComplementsFilter>;
 };
 
 export type MenuCategoriesFilter = {
@@ -345,6 +364,12 @@ export type MenuCategoriesItemsSubItemsMutation = {
   description?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type MenuCategoriesItemsComplementsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Scalars['Float']['input']>;
+};
+
 export type MenuCategoriesItemsMutation = {
   id?: InputMaybe<Scalars['Float']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -356,7 +381,10 @@ export type MenuCategoriesItemsMutation = {
   protein?: InputMaybe<Scalars['String']['input']>;
   isCombo?: InputMaybe<Scalars['Boolean']['input']>;
   maxSelections?: InputMaybe<Scalars['Float']['input']>;
+  hasComplements?: InputMaybe<Scalars['Boolean']['input']>;
+  maxComplements?: InputMaybe<Scalars['Float']['input']>;
   subItems?: InputMaybe<Array<InputMaybe<MenuCategoriesItemsSubItemsMutation>>>;
+  complements?: InputMaybe<Array<InputMaybe<MenuCategoriesItemsComplementsMutation>>>;
 };
 
 export type MenuCategoriesMutation = {
@@ -369,14 +397,14 @@ export type MenuMutation = {
   categories?: InputMaybe<Array<InputMaybe<MenuCategoriesMutation>>>;
 };
 
-export type MenuPartsFragment = { __typename: 'Menu', categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null } | null> | null } | null> | null };
+export type MenuPartsFragment = { __typename: 'Menu', categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, hasComplements?: boolean | null, maxComplements?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null, complements?: Array<{ __typename: 'MenuCategoriesItemsComplements', id?: string | null, name?: string | null, price?: number | null } | null> | null } | null> | null } | null> | null };
 
 export type MenuQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type MenuQuery = { __typename?: 'Query', menu: { __typename: 'Menu', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null } | null> | null } | null> | null } };
+export type MenuQuery = { __typename?: 'Query', menu: { __typename: 'Menu', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, hasComplements?: boolean | null, maxComplements?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null, complements?: Array<{ __typename: 'MenuCategoriesItemsComplements', id?: string | null, name?: string | null, price?: number | null } | null> | null } | null> | null } | null> | null } };
 
 export type MenuConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -388,7 +416,7 @@ export type MenuConnectionQueryVariables = Exact<{
 }>;
 
 
-export type MenuConnectionQuery = { __typename?: 'Query', menuConnection: { __typename?: 'MenuConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MenuConnectionEdges', cursor: string, node?: { __typename: 'Menu', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null } | null> | null } | null> | null } | null } | null> | null } };
+export type MenuConnectionQuery = { __typename?: 'Query', menuConnection: { __typename?: 'MenuConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MenuConnectionEdges', cursor: string, node?: { __typename: 'Menu', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, categories?: Array<{ __typename: 'MenuCategories', id?: number | null, name?: string | null, items?: Array<{ __typename: 'MenuCategoriesItems', id?: number | null, name?: string | null, description?: string | null, price?: number | null, image?: string | null, available?: boolean | null, calories?: number | null, protein?: string | null, isCombo?: boolean | null, maxSelections?: number | null, hasComplements?: boolean | null, maxComplements?: number | null, subItems?: Array<{ __typename: 'MenuCategoriesItemsSubItems', id?: string | null, name?: string | null, description?: string | null } | null> | null, complements?: Array<{ __typename: 'MenuCategoriesItemsComplements', id?: string | null, name?: string | null, price?: number | null } | null> | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export const MenuPartsFragmentDoc = gql`
     fragment MenuParts on Menu {
@@ -409,11 +437,19 @@ export const MenuPartsFragmentDoc = gql`
       protein
       isCombo
       maxSelections
+      hasComplements
+      maxComplements
       subItems {
         __typename
         id
         name
         description
+      }
+      complements {
+        __typename
+        id
+        name
+        price
       }
     }
   }

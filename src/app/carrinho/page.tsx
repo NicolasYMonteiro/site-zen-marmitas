@@ -173,9 +173,14 @@ export default function CarrinhoPage() {
                           {/* Informações do item */}
                           <div className="flex-1 min-w-0">
                             <h3 className="text-lg font-semibold text-gray-900 truncate">{item.name}</h3>
-                            <p className="text-lg font-bold text-[#5d7b3b]">
+                            <div className="text-lg font-bold text-[#5d7b3b]">
                               R$ {item.price.toFixed(2).replace('.', ',')}
-                            </p>
+                              {item.selectedComplements && item.selectedComplements.length > 0 && (
+                                <span className="text-sm text-gray-600 ml-2">
+                                  (+R$ {item.selectedComplements.reduce((total, comp) => total + comp.price, 0).toFixed(2).replace('.', ',')})
+                                </span>
+                              )}
+                            </div>
                             
                             {/* Mostrar itens selecionados do combo */}
                             {item.isCombo && item.comboSelections && item.comboSelections.length > 0 && (
@@ -188,6 +193,25 @@ export default function CarrinhoPage() {
                                         • {selection.quantity}x {selection.subItemName}
                                       </p>
                                     )
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Mostrar complementos selecionados */}
+                            {!item.isCombo && item.selectedComplements && item.selectedComplements.length > 0 && (
+                              <div className="mt-2">
+                                <p className="text-sm font-medium text-gray-700 mb-1">Complementos:</p>
+                                <div className="space-y-1">
+                                  {item.selectedComplements.map((complement, index) => (
+                                    <p key={index} className="text-xs text-gray-600">
+                                      • {complement.complementName}
+                                      {complement.price > 0 && (
+                                        <span className="text-[#5d7b3b] font-medium">
+                                          {' '}(+R$ {complement.price.toFixed(2).replace('.', ',')})
+                                        </span>
+                                      )}
+                                    </p>
                                   ))}
                                 </div>
                               </div>
@@ -237,12 +261,32 @@ export default function CarrinhoPage() {
 
                   {/* Resumo dos itens */}
                   <div className="space-y-3 mb-6">
-                    {items.map((item) => (
-                      <div key={item.id} className="flex justify-between text-sm">
-                        <span className="text-gray-600">{item.name} x{item.quantity}</span>
-                        <span className="font-medium">R$ {(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
-                      </div>
-                    ))}
+                    {items.map((item) => {
+                      const itemPrice = item.price * item.quantity;
+                      const complementsPrice = item.selectedComplements?.reduce((total, complement) => 
+                        total + (complement.price * item.quantity), 0) || 0;
+                      const totalItemPrice = itemPrice + complementsPrice;
+                      
+                      return (
+                        <div key={item.id} className="flex justify-between text-sm">
+                          <div className="flex-1">
+                            <span className="text-gray-600">{item.name} x{item.quantity}</span>
+                            {item.selectedComplements && item.selectedComplements.length > 0 && (
+                              <div className="text-xs text-gray-500 mt-1">
+                                {item.selectedComplements.map((comp, idx) => (
+                                  <span key={idx}>
+                                    {comp.complementName}
+                                    {comp.price > 0 && ` (+R$ ${comp.price.toFixed(2).replace('.', ',')})`}
+                                    {idx < item.selectedComplements!.length - 1 && ', '}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          <span className="font-medium">R$ {totalItemPrice.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {/* Total */}

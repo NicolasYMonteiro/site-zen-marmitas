@@ -9,6 +9,18 @@ export interface ComboSelection {
   quantity: number;
 }
 
+export interface Complement {
+  id: string;
+  name: string;
+  price: number;
+}
+
+export interface ComplementSelection {
+  complementId: string;
+  complementName: string;
+  price: number;
+}
+
 export interface CartItem {
   id: number;
   name: string;
@@ -18,6 +30,10 @@ export interface CartItem {
   image?: string;
   isCombo?: boolean;
   comboSelections?: ComboSelection[];
+  hasComplements?: boolean;
+  maxComplements?: number;
+  complements?: Complement[];
+  selectedComplements?: ComplementSelection[];
 }
 
 export interface CustomerInfo {
@@ -34,6 +50,7 @@ interface CartContextType {
   items: CartItem[];
   addItem: (item: Omit<CartItem, 'quantity'>) => void;
   addComboItem: (item: Omit<CartItem, 'quantity'>, comboSelections: ComboSelection[]) => void;
+  addItemWithComplements: (item: Omit<CartItem, 'quantity'>, selectedComplements: ComplementSelection[]) => void;
   removeItem: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
@@ -115,6 +132,34 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const addItemWithComplements = (newItem: Omit<CartItem, 'quantity'>, selectedComplements: ComplementSelection[]) => {
+    const itemWithComplements = {
+      ...newItem,
+      selectedComplements,
+      quantity: 1
+    };
+    
+    setItems(prevItems => {
+      const existingItem = prevItems.find(item => 
+        item.id === newItem.id && 
+        !item.isCombo && 
+        JSON.stringify(item.selectedComplements) === JSON.stringify(selectedComplements)
+      );
+      
+      if (existingItem) {
+        return prevItems.map(item =>
+          item.id === newItem.id && 
+          !item.isCombo && 
+          JSON.stringify(item.selectedComplements) === JSON.stringify(selectedComplements)
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevItems, itemWithComplements];
+      }
+    });
+  };
+
   const removeItem = (id: number) => {
     setItems(prevItems => prevItems.filter(item => item.id !== id));
   };
@@ -139,13 +184,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
 
-  const totalPrice = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const totalPrice = items.reduce((total, item) => {
+    const itemPrice = item.price * item.quantity;
+    const complementsPrice = item.selectedComplements?.reduce((complementsTotal, complement) => 
+      complementsTotal + (complement.price * item.quantity), 0) || 0;
+    return total + itemPrice + complementsPrice;
+  }, 0);
 
 
   const value: CartContextType = {
     items,
     addItem,
     addComboItem,
+    addItemWithComplements,
     removeItem,
     updateQuantity,
     clearCart,

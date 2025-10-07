@@ -1,17 +1,18 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useCart, ComboSelection } from '@/contexts/CartContext';
+import { useCart, ComboSelection, ComplementSelection } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar/navbar';
 import Footer from '@/components/footer/footer';
 import { useMenu } from '@/hooks/useMenu';
 import { useMetaPixel } from '@/hooks/useMetaPixel';
 import ComboCustomizationModal from '@/components/combo/ComboCustomizationModal';
+import ComplementSelectionModal from '@/components/complement/ComplementSelectionModal';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function CardapioPage() {
-  const { addItem, addComboItem } = useCart();
+  const { addItem, addComboItem, addItemWithComplements } = useCart();
   const router = useRouter();
   const { trackViewContent, trackAddToCart, trackMenuView } = useMetaPixel();
   const { menuData, loading, error } = useMenu();
@@ -19,6 +20,10 @@ export default function CardapioPage() {
   // Estados para o modal de personalização de combo
   const [isComboModalOpen, setIsComboModalOpen] = useState(false);
   const [selectedCombo, setSelectedCombo] = useState<any>(null);
+  
+  // Estados para o modal de seleção de complementos
+  const [isComplementModalOpen, setIsComplementModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<any>(null);
 
   // Obter todos os itens do cardápio das categorias
   const allMenuItems = menuData?.categories.flatMap(category =>
@@ -28,7 +33,7 @@ export default function CardapioPage() {
     }))
   ) || [];
 
-  // Tipo para item do menu com propriedades opcionais de combo
+  // Tipo para item do menu com propriedades opcionais de combo e complementos
   type MenuItem = typeof allMenuItems[0] & {
     isCombo?: boolean;
     maxSelections?: number;
@@ -36,6 +41,13 @@ export default function CardapioPage() {
       id: string;
       name: string;
       description: string;
+    }>;
+    hasComplements?: boolean;
+    maxComplements?: number;
+    complements?: Array<{
+      id: string;
+      name: string;
+      price: number;
     }>;
   };
 
@@ -53,7 +65,14 @@ export default function CardapioPage() {
       return;
     }
 
-    // Adicionar item normal ao carrinho
+    // Verificar se tem complementos
+    if (item.hasComplements && item.complements && item.complements.length > 0) {
+      setSelectedItem(item);
+      setIsComplementModalOpen(true);
+      return;
+    }
+
+    // Adicionar item normal ao carrinho (sem complementos)
     addItem({
       id: item.id,
       name: item.name,
@@ -99,6 +118,38 @@ export default function CardapioPage() {
 
     // Rastrear visualização de categoria específica
     trackMenuView(selectedCombo.category);
+  };
+
+  const handleComplementConfirm = (selectedComplements: ComplementSelection[]) => {
+    if (!selectedItem) return;
+
+    // Adicionar item com complementos ao carrinho
+    addItemWithComplements({
+      id: selectedItem.id,
+      name: selectedItem.name,
+      price: selectedItem.price,
+      description: selectedItem.description,
+      image: selectedItem.image,
+      hasComplements: selectedItem.hasComplements,
+      maxComplements: selectedItem.maxComplements,
+      complements: selectedItem.complements
+    }, selectedComplements);
+
+    // Rastrear evento no Meta Pixel
+    const totalPrice = selectedItem.price + selectedComplements.reduce((total, comp) => total + comp.price, 0);
+    trackAddToCart({
+      id: selectedItem.id,
+      name: selectedItem.name,
+      price: totalPrice,
+      quantity: 1
+    });
+
+    // Rastrear visualização de categoria específica
+    trackMenuView(selectedItem.category);
+    
+    // Feedback visual
+    const complementNames = selectedComplements.map(comp => comp.complementName).join(', ');
+    toast.success(`${selectedItem.name} com ${complementNames || 'sem complementos'} adicionado ao carrinho!`);
   };
 
   if (loading) {
@@ -248,7 +299,12 @@ export default function CardapioPage() {
                       from-[#5d7b3b] to-[#7a9a4e] text-white hover:from-[#4a622f] hover:to-[#5d7b3b] shadow-lg
                       hover:shadow-xl"
                     >
-                      {item.isCombo ? 'Personalizar Combo' : 'Adicionar ao Carrinho'}
+                      {item.isCombo 
+                        ? 'Personalizar Combo' 
+                        : item.hasComplements 
+                        ? 'Escolher Complementos' 
+                        : 'Adicionar ao Carrinho'
+                      }
                     </button>
                   </div>
 
@@ -300,6 +356,21 @@ export default function CardapioPage() {
           comboName={selectedCombo.name}
           subItems={selectedCombo.subItems || []}
           maxSelections={selectedCombo.maxSelections || 7}
+        />
+      )}
+
+      {/* Modal de seleção de complementos */}
+      {selectedItem && (
+        <ComplementSelectionModal
+          isOpen={isComplementModalOpen}
+          onClose={() => {
+            setIsComplementModalOpen(false);
+            setSelectedItem(null);
+          }}
+          onConfirm={handleComplementConfirm}
+          itemName={selectedItem.name}
+          complements={selectedItem.complements || []}
+          maxComplements={selectedItem.maxComplements || 3}
         />
       )}
     </div>
