@@ -63,6 +63,10 @@ export default function Footer() {
               <div className="flex text-sm">
                 <h1>Feito por Nícolas Monteiro - nicolasmonteiro0123@gmail.com</h1>
               </div>
+              <Link href="/politica-de-privacidade" className="text-blue-500 hover:underline">
+                Política de Privacidade
+              </Link>
+
             </div>
           </div>
         </div>
